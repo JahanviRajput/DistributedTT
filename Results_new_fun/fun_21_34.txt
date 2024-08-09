@@ -1,0 +1,532 @@
+------------------------------------------------------------------------------
+BM: P-21                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Chung Reynolds function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    Note that we have specified smaller limits for argument changes
+    relative to the commonly used [-100, 100].
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("34. Chung Reynolds Function"; Continuous, Differentiable,
+    Partially-separable, Scalable, Unimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-21
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncChung
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-9.85, -9.91, <...>, -9.85]
+Upper grid limit                         : [9.84, 9.97, <...>, 9.84]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-22                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Dixon function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x_i = 2^{(2^i-2) / 2^i}
+    (i = 1, ..., d), y = 0;  note that this function achieves a global
+    minimum at more than one point.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("48. Dixon & Price Function"; Continuous, Differentiable,
+    Non-Separable, Scalable, Unimodal).
+    See also https://www.sfu.ca/~ssurjano/dixonpr.html for details.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-22
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncDixon
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-9.85, -9.91, <...>, -9.85]
+Upper grid limit                         : [9.84, 9.97, <...>, 9.84]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : [1.00, 0.71, <...>, 0.51]
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-23                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Pathological function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-100, 100] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("87. Pathological Function"; Continuous, Differentiable,
+    Non-separable, Non-scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-23
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncPathological
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-98.45, -99.12, <...>, -98.48]
+Upper grid limit                         : [98.43, 99.74, <...>, 98.35]
+Grid kind                                : cheb
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-24                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Pinter function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("89. Pinter Function"; Continuous, Differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-24
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncPinter
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-9.85, -9.91, <...>, -9.85]
+Upper grid limit                         : [9.84, 9.97, <...>, 9.84]
+Grid kind                                : cheb
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-25                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Powell function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-1, 1] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("93. Powell Function"; Continuous, Differentiable,
+    Separable, Scalable, Unimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-25
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncPowell
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-0.98, -0.99, <...>, -0.98]
+Upper grid limit                         : [0.98, 1.00, <...>, 0.98]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-26                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Qing function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [0, 500] (with small random shift; note
+    also that we limit this function to this domain instead of often
+    used [-500, 500] to make sure it has a single global minimum);
+    the exact global minimum is known: x_i = \sqrt{i}, y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("98. Qing Function"; Continuous, Differentiable, Separable
+    Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-26
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncQing
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-3.87, -2.19, <...>, -3.81]
+Upper grid limit                         : [503.93, 500.64, <...>, 504.11]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : [1.00, 1.41, <...>, 2.65]
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-27                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Rosenbrock function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-2.048, 2.048] (with small random shift);
+    the exact global minimum is known: x = [1, ..., 1], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("105. Rosenbrock Function 1"; Continuous, Differentiable,
+    Non-Separable, Scalable, Unimodal).
+    See also https://www.sfu.ca/~ssurjano/rosen.html for details (note
+    that we use grid limits from this link).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-27
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncRosenbrock
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-2.08, -2.07, <...>, -2.08]
+Upper grid limit                         : [2.08, 2.05, <...>, 2.08]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 1.00, ..., 1.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-28                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Salomon function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-100, 100] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("110. Salomon Function"; Continuous, Differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-28
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncSalomon
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-98.45, -99.12, <...>, -98.48]
+Upper grid limit                         : [98.43, 99.74, <...>, 98.35]
+Grid kind                                : cheb
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-29                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Sphere function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-5.12, 5.12] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("136. Sphere Function"; Continuous, Differentiable,
+    Separable, Scalable, Multimodal).
+    See also https://www.sfu.ca/~ssurjano/spheref.html for details (note
+    that we use grid limits from this link).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-29
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncSphere
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-5.04, -5.08, <...>, -5.04]
+Upper grid limit                         : [5.04, 5.11, <...>, 5.04]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-30                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Squares function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("142. Sum Squares Function"; Continuous, Differentiable,
+    Separable, Scalable, Unimodal).
+    See also https://www.sfu.ca/~ssurjano/sumsqu.html for details.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-30
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncSquares
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-9.85, -9.91, <...>, -9.85]
+Upper grid limit                         : [9.84, 9.97, <...>, 9.84]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-31                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Trid function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-d^2, d^2] (with small random shift);
+    the exact global minimum is known: xi = i (d+1-i),
+    y = -d (d+4) (d-1) / 6.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("149. Trid Function 6"; Continuous, Differentiable,
+    Non-separable, Non-scalable, Multimodal).
+    See also https://www.sfu.ca/~ssurjano/trid.html for details (note
+    that we use global minimum and grid limits from this link).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-31
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncTrid
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-49.76, -49.43, <...>, -49.75]
+Upper grid limit                         : [49.77, 49.13, <...>, 49.81]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : -7.7000e+01
+Exact min (point)                        : [7.00, 12.00, <...>, 7.00]
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-32                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Trigonometric function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [0, pi] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("152. Trigonometric Function 1"; Continuous, Differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-32
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncTrigonometric
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-0.02, -0.01, <...>, -0.02]
+Upper grid limit                         : [3.17, 3.15, <...>, 3.17]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-33                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Wavy function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-pi, pi] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("164. W / Wavy Function"; Continuous, Differentiable,
+    Separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-33
+-----------------------------------------|             >               Options
+Param "k" for Wavy function [opt_k]      : 10.00
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncWavy
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-3.09, -3.11, <...>, -3.09]
+Upper grid limit                         : [3.09, 3.13, <...>, 3.09]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
+------------------------------------------------------------------------------
+BM: P-34                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Yang function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-2 pi, 2 pi] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("169. Xin-She Yang Function 2"; Discontinuous, Non-differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-34
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncYang
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-6.19, -6.23, <...>, -6.19]
+Upper grid limit                         : [6.18, 6.27, <...>, 6.18]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+
+
+
