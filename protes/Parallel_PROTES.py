@@ -40,4 +40,4 @@ def demofed():
       t_value.append(np.max(tpc()-t))
     return y_value, t_value
 
-y_value, t_value = demofed()
+# y_value, t_value = demofed()

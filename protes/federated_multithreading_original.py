@@ -395,4 +395,4 @@ def calc(m=int(1.E+4), seed=0):
         # print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
     
 
-calc()
+# calc()

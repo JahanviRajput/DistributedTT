@@ -272,6 +272,6 @@ def demofed():
           print(f'\nRESULT | y opt = {y_optk:-11.4e} | time = {tpc()-t:-10.4f}\n\n')
           t_value=(tpc()-t)
     return y_optk, t_value
-y,t=demofed()
-print(y,t)
+# y,t=demofed()
+# print(y,t)
 

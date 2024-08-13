@@ -65,6 +65,6 @@ def dataframe_creation():
     df1.drop(columns=['P09'], inplace=True)
     return df1
 
-df = dataframe_creation()
-# Execute the demofed function
-demofed()
+# df = dataframe_creation()
+# # Execute the demofed function
+# demofed()
