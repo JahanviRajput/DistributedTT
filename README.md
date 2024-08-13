@@ -3,7 +3,30 @@
 
 ## Description
 
-Method **PROTES** (**PR**obabilistic **O**ptimizer with **TE**nsor **S**ampling) for derivative-free optimization of the multidimensional arrays and discretized multivariate functions based on the tensor train (TT) format.
+Method **DiPTS** (**Di**stributed **P**robabilistic **TE**nsor **S**ampling) for derivative-free optimization of the multidimensional arrays and discretized multivariate functions based on the tensor train (TT) format.
+
+## Parameter
+
+**Mandatory arguments**:
+
+- `f` (function) - the target function `f(I)`, where input `I` is a 2D jax array of the shape `[samples, d]` (`d` is a number of dimensions of the function's input and `samples` is a batch size of requested multi-indices). The function should return 1D list or jax array or numpy array of the length equals to `samples` (the values of the target function for all provided multi-indices, i.e., the values of the optimized tensor).
+- `d` (int) - dimension of the input tensor.
+- `n` (int) - mode size for each dimension.
+
+**Optional arguments**:
+
+- `m` (int) - the number of allowed requests for a single black box to the objective function (the default value is `None`). If this parameter is not set, then the optimization process will continue until the objective function returns `None` instead of a list of values.
+- `k` (int) - the batch size for optimization (the default value is `100`).
+- `k_top` (int) - number of black boxes avaialble for parallel computation (it should be `< k`; the default value is `10`).
+- `k_gd` (int) - number of gradient lifting iterations for each batch (the default value is `1`. Please note that this value ensures the maximum performance of the method, however, for a number of problems, a more accurate result is obtained by increasing this parameter, for example to `100`).
+- `lr` (float): learning rate for gradient lifting iterations (the default value is `5.E-2`. Please note that this value must be correlated with the parameter `k_gd`).
+- `r` (int): TT-rank of the constructed probability TT-tensor (the default value is `5`. Please note that we have not yet found problems where changing this value would lead to an improvement in the result).
+- `seed` (int): parameter for jax random generator (the default value is `0`).
+- `is_max` (bool): if flag is set, then maximization rather than minimization will be performed.
+- `log` (bool): if flag is set, then the information about the progress of the algorithm will be printed after each improvement of the optimization result and at the end of the algorithm's work. Not that this argument may be also a function, in this case it will be used instead of ordinary `print`.
+- `info` (dict): optional dictionary, which will be filled with reference information about the process of the algorithm operation.
+- `P` (list): optional initial probability tensor in the TT-format (represented as a list of jax arrays, where all non-edge TT-cores are merged into one array; see the function `_generate_initial` in `protes.py` for details). If this parameter is not set, then a random initial TT-tensor will be generated. Note that this tensor will be changed inplace.
+
 
 
 ## Installation
@@ -83,10 +106,8 @@ there are also a few more arguments (not documented) that we use for special app
 
 ## Authors
 
-- [Anastasia Batsheva](https://github.com/anabatsh)
-- [Andrei Chertkov](https://github.com/AndreiChertkov)
-- [Gleb Ryzhakov](https://github.com/G-Ryzhakov)
-- [Ivan Oseledets](https://github.com/oseledets)
+- [Jahanvi Rajput](https://github.com/JahanviRajput)
+- [Drashthi Doshi](https://github.com/DrashthiD)
 
 
 ## Citation
@@ -94,12 +115,12 @@ there are also a few more arguments (not documented) that we use for special app
 If you find our approach and/or code useful in your research, please consider citing:
 
 ```bibtex
-@article{batsheva2023protes,
-    author    = {Batsheva, Anastasia and Chertkov, Andrei and Ryzhakov, Gleb and Oseledets, Ivan},
-    year      = {2023},
-    title     = {{PROTES}: {P}robabilistic optimization with tensor sampling},
-    journal   = {Advances in Neural Information Processing Systems},
-    url       = {https://arxiv.org/pdf/2301.12162.pdf}
+@article{Rajput2024DiPTS,
+    author    = {Rajput, Jahanvi and Doshi,Drashthi},
+    year      = {2024},
+    title     = {{DiPTS}: {Di}stributed Probabilistic Tensor Sampling},
+    journal   = {},
+    url       = {}
 }
 ```
 
