@@ -9,7 +9,7 @@ from time import perf_counter as tpc
 
 import sys
 sys.path.append('../')  
-from protes import protes_fed_learning
+from protes import dipts
 import numpy as np
 
 def func_build_alp(d, n):
@@ -41,7 +41,7 @@ def demo():
     f = func_build_alp(d, n) # Target function, which defines the array elements
 
     t = tpc()
-    i_opt, y_opt = protes_fed_learning(f, d, n, m, log=True, k = 100)
+    i_opt, y_opt = dipts(f, d, n, m, log=True, k = 100)
     print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n | x opt = {i_opt}')
 
 
