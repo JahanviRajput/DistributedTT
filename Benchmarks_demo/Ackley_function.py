@@ -32,7 +32,7 @@ def func_buildfed(d, n):
 
         y3 = par_a + np.exp(1.)
 
-        return y1 + y2 + y3 + 28
+        return y1 + y2 + y3 
 
     return func
 
@@ -44,7 +44,7 @@ def demo():
     having "n" elements in each dimension. The array is obtained from the
     discretization of an analytic function.
     """
-    d = 100              # Dimension
+    d = 15             # Dimension
     n = 11               # Mode size
     m = int(1.E+4)       # Number of requests to the objective function
     f = func_buildfed(d, n) # Target function, which defines the array elements

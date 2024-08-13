@@ -15,11 +15,6 @@ from protes import dipts
 def func_build_Rastrigin(d, n):
     """Rastrigin multivariable analytic functions"""
 
-    # Parameters
-    A = 10
-   
-
-
     def func(I):
         """
         https://www.sfu.ca/~ssurjano/rastr.html
@@ -37,7 +32,7 @@ def func_build_Rastrigin(d, n):
 
 def demo():
 
-    d = 100              # Dimension
+    d = 5             # Dimension
     n = 11               # Mode size
     m = int(1.E+4)       # Number of requests to the objective function
     f = func_build_Rastrigin(d, n) # Target function, which defines the array elements

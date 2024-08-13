@@ -35,7 +35,7 @@ def demo():
     discretization of an analytic function.
 
     """
-    d = 100              # Dimension
+    d = 5              # Dimension
     n = 11               # Mode size
     m = int(1.E+4)       # Number of requests to the objective function
     f = func_build_alp(d, n) # Target function, which defines the array elements
