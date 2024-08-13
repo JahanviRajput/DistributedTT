@@ -1,4 +1,4 @@
-# PROTES
+# DiPTS
 
 
 ## Description
@@ -31,35 +31,12 @@ Method **DiPTS** (**Di**stributed **P**robabilistic **TE**nsor **S**ampling) for
 
 ## Installation
 
-To use this package, please install manually first the [python](https://www.python.org) programming language of the version `3.8` or `3.9`, then, the package can be installed via pip:
-```bash
-pip install protes==0.3.6
-```
+To use this package, please install manually first the [python](https://www.python.org) programming language of the version `3.8` or `3.9`.
 
 > To ensure version stability, we recommend working in a virtual environment, as described in the `workflow.md`. Also note that `requirements.txt` contains `jax[cpu]`; if you need the GPU version of the `jax`, please install it yourself.
 
 
-## Usage
-
-Let's say we want to find the minimum of a `d = 10` dimensional array (tensor) that has `n = 5` elements (indices) in each mode. Let an arbitrary tensor element `y` related to the d-dimensional multi-index `i` is defined by the function `y = f(i) = sum(i)`. In this case, the optimizer may be launched in the following way:
-
-```python
-import numpy as np
-from protes import protes
-f_batch = lambda I: np.sum(I, axis=1)
-i_opt, y_opt = protes(f=f_batch, d=10, n=5, m=5.E+3, log=True)
-```
-
-The function `f_batch` takes a set of multi-indices `I` (`jax` array having a size `samples x d`) and returns a list (or `jax` array or `numpy` array) of the corresponding tensor values; `m` is is the computational budget (the allowed number of requested tensor elements). Returned values `i_opt` (`jax` array) and `y_opt` (float) are the found multi-index and the value in this multi-index for the approximate optimum (in our case, minimum, since the flag `is_max` is not set) of the target tensor, respectively.
-
-> The input `I` can be easily converted to a `numpy` array if needed (i.e., `import numpy as np; I = np.array(I)`), so you you can use the ordinary `numpy` inside the taget function and do not use the `jax` at all.
-
-> Note that the code runs orders of magnitude faster if the tensor's mode size (`n`) is the same for all modes, as shown in the example above. If you need to optimize a tensor with discriminating mode sizes, then you should use the slow `protes_general` function (i.e., `from protes import protes_general`). In this case, instead of two parameters `d` and `n`, one parameter `n` should be passed, which is a list of the length `d` corresponding to the mode sizes in each dimension (all other parameters for the function `protes_general` are the same as for the function `protes`, which are detailed in the next section).
-
-Please, see also the `demo` folder, which contains several examples of using the `PROTES` method for real tasks (a simple demo can be run in the console with a command `python demo/demo_func.py` and `python demo/demo_qubo.py`).
-
-
-## Parameters of the `protes` function
+## Parameters of the `dipts` function
 
 **Mandatory arguments**:
 
@@ -71,7 +48,7 @@ Please, see also the `demo` folder, which contains several examples of using the
 
 - `m` (int) - the number of allowed requests to the objective function (the default value is `None`). If this parameter is not set, then the optimization process will continue until the objective function returns `None` instead of a list of values.
 - `k` (int) - the batch size for optimization (the default value is `100`).
-- `k_top` (int) - number of selected candidates in the batch (it should be `< k`; the default value is `10`).
+- `nbb` (int) - number of selected candidates in the batch (it should be `< k`; the default value is `10`).
 - `k_gd` (int) - number of gradient lifting iterations for each batch (the default value is `1`. Please note that this value ensures the maximum performance of the method, however, for a number of problems, a more accurate result is obtained by increasing this parameter, for example to `100`).
 - `lr` (float): learning rate for gradient lifting iterations (the default value is `5.E-2`. Please note that this value must be correlated with the parameter `k_gd`).
 - `r` (int): TT-rank of the constructed probability TT-tensor (the default value is `5`. Please note that we have not yet found problems where changing this value would lead to an improvement in the result).
@@ -80,10 +57,6 @@ Please, see also the `demo` folder, which contains several examples of using the
 - `log` (bool): if flag is set, then the information about the progress of the algorithm will be printed after each improvement of the optimization result and at the end of the algorithm's work. Not that this argument may be also a function, in this case it will be used instead of ordinary `print`.
 - `info` (dict): optional dictionary, which will be filled with reference information about the process of the algorithm operation.
 - `P` (list): optional initial probability tensor in the TT-format (represented as a list of jax arrays, where all non-edge TT-cores are merged into one array; see the function `_generate_initial` in `protes.py` for details). If this parameter is not set, then a random initial TT-tensor will be generated. Note that this tensor will be changed inplace.
-
-**Other arguments**:
-
-there are also a few more arguments (not documented) that we use for special applications.
 
 
 ## Notes
