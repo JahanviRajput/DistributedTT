@@ -13,3 +13,4 @@ pandas>=0.25,<=1.5.3
 scipy>=1.9,<1.11;python_version=="3.8"
 scipy>=1.9;python_version>="3.9"
 seaborn>=0.12.2
+protes==0.3.8
