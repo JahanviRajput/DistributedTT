@@ -107,17 +107,17 @@ BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
 
 from opti import *
 Optis = {
-    # 'my': OptifedProtes,
-    # 'Noisy': OptiProtesNoisy,
-    # 'Noisy_protes': OptiProtesNoisyComp,
-    # 'BS-0': OptiProtes,
-    # 'BS-1': OptiTTOpt,
-    # 'BS-2': OptiOptimatt,
-    # 'BS-3': OptiOPO,
-    # 'BS-4': OptiPSO,
-    # 'BS-5': OptiNB,
-    # 'BS-6': OptiSPSA,
-    # 'BS-7': OptiPortfolio,
+    'my': OptifedProtes,
+    'Noisy': OptiProtesNoisy,
+    'Noisy_protes': OptiProtesNoisyComp,
+    'BS-0': OptiProtes,
+    'BS-1': OptiTTOpt,
+    'BS-2': OptiOptimatt,
+    'BS-3': OptiOPO,
+    'BS-4': OptiPSO,
+    'BS-5': OptiNB,
+    'BS-6': OptiSPSA,
+    'BS-7': OptiPortfolio,
 }
 
 
@@ -141,90 +141,90 @@ def calc(m=int(1.E+4), seed=0):
     res = {}
 
     for bm in bms:
-        # np.random.seed(seed)
-        # if bm.name in BM_FUNC:
-        #     # We carry out a small random shift of the function's domain,
-        #     # so that the optimum does not fall into the middle of the domain:
-        #     bm = _prep_bm_func(bm)
-        # else:
-            # bm.prep()
+        np.random.seed(seed)
+        if bm.name in BM_FUNC:
+            # We carry out a small random shift of the function's domain,
+            # so that the optimum does not fall into the middle of the domain:
+            bm = _prep_bm_func(bm)
+        else:
+            bm.prep()
 
         log(bm.info())
-        # res[bm.name] = {}
-        # a = np.random.randint(0, 1000)
-        # for opti_name, Opti in Optis.items():
-        #     # np.random.seed(seed)
-        #     opti = Opti(name=opti_name)
-        #     opti.prep(bm.get, bm.d, bm.n, m, is_f_batch=True)
+        res[bm.name] = {}
+        a = np.random.randint(0, 1000)
+        for opti_name, Opti in Optis.items():
+            # np.random.seed(seed)
+            opti = Opti(name=opti_name)
+            opti.prep(bm.get, bm.d, bm.n, m, is_f_batch=True)
 
-        #     if bm.name in BM_OC_CONSTR and opti_name == 'Our' or opti_name == 'my':
-        #         # Problem with constraint for PROTES (we use the initial
-        #         # approximation of the special form in this case):
-        #         P = ind_tens_max_ones(bm.d, 3, opti.opts_r)
-        #         Pl = jnp.array(P[0], copy=True)
-        #         Pm = jnp.array(P[1:-1], copy=True)
-        #         Pr = jnp.array(P[-1], copy=True)
-        #         P = [Pl, Pm, Pr]
-        #         opti.opts(P=P)
-        #     if opti_name == 'mw':
-        #         def optimize_function():
-        #             opti.optimize()
-        #             return opti.y
-        #         with concurrent.futures.ThreadPoolExecutor() as executor:
-        #             results = list(executor.map(optimize_function))
-        #         y_values = zip(*results)
-        #         opti.y = np.min(y_values)
-        #         print("opti.y",opti.y)
-        #     else:
-        #         print("opti_name",opti_name)
-                # opti.optimize()
-            # res[bm.name][opti.name] = [opti.m_list, opti.y_list, opti.y]
-            # _save(res)
+            if bm.name in BM_OC_CONSTR and opti_name == 'Our' or opti_name == 'my':
+                # Problem with constraint for PROTES (we use the initial
+                # approximation of the special form in this case):
+                P = ind_tens_max_ones(bm.d, 3, opti.opts_r)
+                Pl = jnp.array(P[0], copy=True)
+                Pm = jnp.array(P[1:-1], copy=True)
+                Pr = jnp.array(P[-1], copy=True)
+                P = [Pl, Pm, Pr]
+                opti.opts(P=P)
+            if opti_name == 'mw':
+                def optimize_function():
+                    opti.optimize()
+                    return opti.y
+                with concurrent.futures.ThreadPoolExecutor() as executor:
+                    results = list(executor.map(optimize_function))
+                y_values = zip(*results)
+                opti.y = np.min(y_values)
+                print("opti.y",opti.y)
+            else:
+                print("opti_name",opti_name)
+                opti.optimize()
+            res[bm.name][opti.name] = [opti.m_list, opti.y_list, opti.y]
+            _save(res)
 
         log('\n\n')
 
 
-def plot(m_min=1.E+0):
-    plot_opts = {
-        'P-02': {},
-        'P-14': {'y_min': 1.8E+3, 'y_max': 3.2E+3, 'inv': True},
-        'P-16': {'y_min': 1.E-2, 'y_max': 2.E+0},
-    }
-    res = _load()
+# def plot(m_min=1.E+0):
+#     plot_opts = {
+#         'P-02': {},
+#         'P-14': {'y_min': 1.8E+3, 'y_max': 3.2E+3, 'inv': True},
+#         'P-16': {'y_min': 1.E-2, 'y_max': 2.E+0},
+#     }
+#     res = _load()
 
-    fig, axs = plt.subplots(1, 3, figsize=(24, 8))
-    plt.subplots_adjust(wspace=0.3)
+#     fig, axs = plt.subplots(1, 3, figsize=(24, 8))
+#     plt.subplots_adjust(wspace=0.3)
 
-    i = -1
-    for bm, item in res.items():
-        if not bm in plot_opts.keys():
-            continue
-        i += 1
-        ax = axs[i]
+#     i = -1
+#     for bm, item in res.items():
+#         if not bm in plot_opts.keys():
+#             continue
+#         i += 1
+#         ax = axs[i]
 
-        ax.set_xlabel('Number of requests')
+#         ax.set_xlabel('Number of requests')
 
-        for opti, data in item.items():
-            m = np.array(data[0], dtype=int)
-            y = np.array(data[1])
-            if plot_opts[bm].get('inv'):
-                y *= -1
-            j = np.argmax(m >= m_min)
-            nm = opti
-            if nm == 'Our':
-                nm = 'PROTES'
-            ax.plot(m[j:], y[j:], label=nm,
-                marker='o', markersize=8, linewidth=6 if nm == 'PROTES' else 3)
+#         for opti, data in item.items():
+#             m = np.array(data[0], dtype=int)
+#             y = np.array(data[1])
+#             if plot_opts[bm].get('inv'):
+#                 y *= -1
+#             j = np.argmax(m >= m_min)
+#             nm = opti
+#             if nm == 'Our':
+#                 nm = 'PROTES'
+#             ax.plot(m[j:], y[j:], label=nm,
+#                 marker='o', markersize=8, linewidth=6 if nm == 'PROTES' else 3)
 
-        _prep_ax(ax, xlog=True, ylog=True, leg=i==0)
-        ax.set_xlim(m_min, 2.E+4)
-        if 'y_min' in plot_opts[bm]:
-            ax.set_ylim(plot_opts[bm]['y_min'], plot_opts[bm]['y_max'])
+#         _prep_ax(ax, xlog=True, ylog=True, leg=i==0)
+#         ax.set_xlim(m_min, 2.E+4)
+#         if 'y_min' in plot_opts[bm]:
+#             ax.set_ylim(plot_opts[bm]['y_min'], plot_opts[bm]['y_max'])
 
-    #yticks = [1.8E+3, 2.0E+3, 2.2E+3, 2.4E+3, 2.6E+3, 2.8E+3, 3.0E+3, 3.2E+3]
-    #ax.set(yticks=yticks, yticklabels=[int(])
-    #ax.get_yaxis().get_major_formatter().labelOnlyBase = False
-    plt.savefig('deps.png', bbox_inches='tight')
+#     #yticks = [1.8E+3, 2.0E+3, 2.2E+3, 2.4E+3, 2.6E+3, 2.8E+3, 3.0E+3, 3.2E+3]
+#     #ax.set(yticks=yticks, yticklabels=[int(])
+#     #ax.get_yaxis().get_major_formatter().labelOnlyBase = False
+#     plt.savefig('deps.png', bbox_inches='tight')
 
 
 def text():
@@ -264,28 +264,28 @@ def _load(fpath='res.pickle'):
     return res
 
 
-def _prep_ax(ax, xlog=False, ylog=False, leg=False, xint=False, xticks=None):
-    if xlog:
-        ax.semilogx()
-    if ylog:
-        ax.semilogy()
+# def _prep_ax(ax, xlog=False, ylog=False, leg=False, xint=False, xticks=None):
+#     if xlog:
+#         ax.semilogx()
+#     if ylog:
+#         ax.semilogy()
 
-    if leg:
-        ax.legend(loc='upper right', frameon=True)
+#     if leg:
+#         ax.legend(loc='upper right', frameon=True)
 
-    ax.grid(ls=":")
+#     ax.grid(ls=":")
 
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
+#     ax.spines['top'].set_visible(False)
+#     ax.spines['right'].set_visible(False)
 
-    ax.get_xaxis().tick_bottom()
-    ax.get_yaxis().tick_left()
+#     ax.get_xaxis().tick_bottom()
+#     ax.get_yaxis().tick_left()
 
-    if xint:
-        ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+#     if xint:
+#         ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 
-    if xticks is not None:
-        ax.set(xticks=xticks, xticklabels=xticks)
+#     if xticks is not None:
+#         ax.set(xticks=xticks, xticklabels=xticks)
 
 
 def _prep_bm_func(bm):
@@ -303,13 +303,4 @@ def _save(res, fpath='res.pickle'):
 
 
 if __name__ == '__main__':
-    mode = sys.argv[1] if len(sys.argv) > 1 else 'calc'
-
-    if mode == 'calc':
-        calc()
-    elif mode == 'plot':
-        plot()
-    elif mode == 'text':
-        text()
-    else:
-        raise ValueError(f'Invalid computation mode "{mode}"')
+    calc()
