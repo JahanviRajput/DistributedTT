@@ -57,31 +57,31 @@ bms = [
     ### new analytic functions
     #### need upgarded version
 
-    # BmFuncChung(d = 7, n = 16, name ='P-21'),
+    BmFuncChung(d = 7, n = 16, name ='P-21'),
 
-    # BmFuncDixon(d = 7, n = 16, name ='P-22'), 
+    BmFuncDixon(d = 7, n = 16, name ='P-22'), 
 
-    # BmFuncPathological(d = 7, n = 16, name ='P-23'),
-    # BmFuncPinter(d = 7, n = 16, name ='P-24'), 
-    # BmFuncPowell(d = 7, n = 16, name ='P-25'), 
+    BmFuncPathological(d = 7, n = 16, name ='P-23'),
+    BmFuncPinter(d = 7, n = 16, name ='P-24'), 
+    BmFuncPowell(d = 7, n = 16, name ='P-25'), 
 
-    # BmFuncQing(d = 7, n = 16, name ='P-26'),
-    # BmFuncRosenbrock(d = 7, n = 16, name ='P-27'),
+    BmFuncQing(d = 7, n = 16, name ='P-26'),
+    BmFuncRosenbrock(d = 7, n = 16, name ='P-27'),
 
-    # BmFuncSalomon(d = 7, n = 16, name ='P-28'), 
-    # BmFuncSphere(d = 7, n = 16, name ='P-29'), 
-    # BmFuncSquares(d = 7, n = 16, name ='P-30'),
-    # BmFuncTrid(d = 7, n = 16, name ='P-31'), 
-    # BmFuncTrigonometric(d = 7, n = 16, name ='P-32'), 
-    # BmFuncWavy(d = 7, n = 16, name ='P-33'), 
-    # BmFuncYang(d = 7, n = 16, name ='P-34'),
+    BmFuncSalomon(d = 7, n = 16, name ='P-28'), 
+    BmFuncSphere(d = 7, n = 16, name ='P-29'), 
+    BmFuncSquares(d = 7, n = 16, name ='P-30'),
+    BmFuncTrid(d = 7, n = 16, name ='P-31'), 
+    BmFuncTrigonometric(d = 7, n = 16, name ='P-32'), 
+    BmFuncWavy(d = 7, n = 16, name ='P-33'), 
+    BmFuncYang(d = 7, n = 16, name ='P-34'),
 
     
     
-    # BmQuboMaxcut(d=50, name='P-11'),
-    # BmQuboMvc(d=50, name='P-12'),
-    # BmQuboKnapQuad(d=50, name='P-13'),
-    # BmQuboKnapAmba(d=50, name='P-14'),
+    BmQuboMaxcut(d=50, name='P-11'),
+    BmQuboMvc(d=50, name='P-12'),
+    BmQuboKnapQuad(d=50, name='P-13'),
+    BmQuboKnapAmba(d=50, name='P-14'),
 
     BmOcSimple(d=25, name='P-15'),
     BmOcSimple(d=50, name='P-16'),
@@ -106,7 +106,7 @@ from opti import *
 Optis = {
     'FED PROTES': OptifedProtes,
     'Noisy PROTES': OptiProtesNoisy,
-    # 'Noisy_protes': OptiProtesNoisyComp,
+    'Noisy_protes': OptiProtesNoisyComp,
     'PROTES': OptiProtes,
     'BS-1': OptiTTOpt,
     'BS-2': OptiOptimatt,
@@ -203,7 +203,4 @@ def _save(res, fpath='res.pickle'):
 
 
 if __name__ == '__main__':
-    # df = pd.DataFrame(columns = [""])
     calc()
-    # for i in range(1000,10001,1000):
-    #     calc(m = i)

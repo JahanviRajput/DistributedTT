@@ -6,10 +6,9 @@ jax.default_device(jax.devices('cpu')[0])
 
 import numpy as np
 from time import perf_counter as tpc
-# from submodlib import FacilityLocationFunction
 import sys
 sys.path.append('../')  
-from protes import protes
+from protes import protes_fed_learning
 
 
 def func_buildfed(d, n):
@@ -24,11 +23,7 @@ def func_buildfed(d, n):
 
     def func(I):
         """Target function: y=f(I); [samples,d] -> [samples]."""
-        # objFL = FacilityLocationFunction(n=100, data=I, separate_rep=False, n_rep=36, mode="dense", metric="euclidean")
-        # I = jax.numpy.array(objFL.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False))
-        # # print(len(I))
         X = I / (n - 1) * (b - a) + a
-        # print("X values:",X) 
         y1 = np.sqrt(np.sum(X**2, axis=1) / d)
         y1 = - par_a * np.exp(-par_b * y1)
 
@@ -37,7 +32,7 @@ def func_buildfed(d, n):
 
         y3 = par_a + np.exp(1.)
 
-        return y1 + y2 + y3 +28
+        return y1 + y2 + y3 + 28
 
     return func
 
@@ -48,25 +43,6 @@ def demo():
     We will find the minimum of an implicitly given "d"-dimensional array
     having "n" elements in each dimension. The array is obtained from the
     discretization of an analytic function.
-
-    The result in console should looks like this (note that the exact minimum
-    of this function is y = 0 and it is reached at the origin of coordinates):
-
-    protes > m 1.0e+02 | t 3.092e+00 | y  2.0224e+01
-    protes > m 2.0e+02 | t 3.104e+00 | y  1.9040e+01
-    protes > m 3.0e+02 | t 3.108e+00 | y  1.8706e+01
-    protes > m 5.0e+02 | t 3.116e+00 | y  1.7740e+01
-    protes > m 6.0e+02 | t 3.121e+00 | y  1.6648e+01
-    protes > m 1.0e+03 | t 3.135e+00 | y  1.5434e+01
-    protes > m 1.3e+03 | t 3.146e+00 | y  1.4398e+01
-    protes > m 1.5e+03 | t 3.152e+00 | y  1.4116e+01
-    protes > m 2.0e+03 | t 3.168e+00 | y  1.2658e+01
-    protes > m 2.5e+03 | t 3.188e+00 | y  8.4726e+00
-    protes > m 2.9e+03 | t 3.203e+00 | y  0.0000e+00
-    protes > m 1.0e+04 | t 3.440e+00 | y  0.0000e+00 <<< DONE
-
-    RESULT | y opt =  0.0000e+00 | time =    3.4521
-
     """
     d = 100              # Dimension
     n = 11               # Mode size
@@ -74,8 +50,8 @@ def demo():
     f = func_buildfed(d, n) # Target function, which defines the array elements
 
     t = tpc()
-    i_opt, y_opt = protes(f, d, n, m, log=True, k = 100)
-    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n')
+    i_opt, y_opt = protes_fed_learning(f, d, n, m, log=True, k = 100)
+    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n | x opt = {i_opt}\n\n')
 
 
 if __name__ == '__main__':

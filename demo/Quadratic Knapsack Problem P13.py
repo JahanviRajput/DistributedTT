@@ -8,7 +8,7 @@ import numpy as np
 from time import perf_counter as tpc
 
 
-from protes import protes
+from protes import protes_fed_learning
 
 
 def func_build():
@@ -49,40 +49,13 @@ def demo():
     binary optimization problems with engineering application to antenna
     topology optimization. Note that ths problem has known exact solution -3103.
 
-    The result in console should looks like this:
-
-    protes > m 1.0e+03 | t 3.183e+00 | y -2.7700e+03
-    protes > m 2.0e+03 | t 3.216e+00 | y -2.7910e+03
-    protes > m 3.0e+03 | t 3.241e+00 | y -2.8280e+03
-    protes > m 4.0e+03 | t 3.265e+00 | y -2.9100e+03
-    protes > m 6.0e+03 | t 3.315e+00 | y -2.9130e+03
-    protes > m 7.0e+03 | t 3.339e+00 | y -2.9620e+03
-    protes > m 9.0e+03 | t 3.389e+00 | y -2.9780e+03
-    protes > m 1.0e+04 | t 3.413e+00 | y -3.0020e+03
-    protes > m 1.2e+04 | t 3.462e+00 | y -3.0180e+03
-    protes > m 1.3e+04 | t 3.486e+00 | y -3.0350e+03
-    protes > m 1.5e+04 | t 3.535e+00 | y -3.0380e+03
-    protes > m 1.7e+04 | t 3.584e+00 | y -3.0410e+03
-    protes > m 1.9e+04 | t 3.633e+00 | y -3.0610e+03
-    protes > m 2.2e+04 | t 3.707e+00 | y -3.0720e+03
-    protes > m 2.8e+04 | t 3.850e+00 | y -3.0780e+03
-    protes > m 2.9e+04 | t 3.873e+00 | y -3.0860e+03
-    protes > m 3.0e+04 | t 3.897e+00 | y -3.0870e+03
-    protes > m 3.1e+04 | t 3.921e+00 | y -3.0910e+03
-    protes > m 3.5e+04 | t 4.018e+00 | y -3.0960e+03
-    protes > m 4.7e+04 | t 4.300e+00 | y -3.0980e+03
-    protes > m 4.9e+04 | t 4.349e+00 | y -3.1030e+03
-    protes > m 5.0e+04 | t 4.372e+00 | y -3.1030e+03 <<< DONE
-
-    RESULT | y opt = -3.1030e+03 | time =     4.3837
-
     """
     d, n, f = func_build() # Target function, and array shape
     m = int(5.E+4)         # Number of requests to the objective function
 
     t = tpc()
-    i_opt, y_opt = protes(f, d, n, m, k=1000, k_top=5, log=True)
-    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n')
+    i_opt, y_opt = protes_fed_learning(f, d, n, m, k=1000, nbb=5, log=True)
+    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n | x opt = {i_opt}')
 
 
 if __name__ == '__main__':

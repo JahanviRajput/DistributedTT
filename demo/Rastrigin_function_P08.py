@@ -8,10 +8,8 @@ import numpy as np
 from time import perf_counter as tpc
 import sys
 sys.path.append('../')  
-# from submodlib import FacilityLocationFunction
 
-
-from protes import protes
+from protes import protes_fed_learning
 
 
 def func_build_Rastrigin(d, n):
@@ -42,11 +40,11 @@ def demo():
     d = 100              # Dimension
     n = 11               # Mode size
     m = int(1.E+4)       # Number of requests to the objective function
-    f = func_build(d, n) # Target function, which defines the array elements
+    f = func_build_Rastrigin(d, n) # Target function, which defines the array elements
 
     t = tpc()
-    i_opt, y_opt = protes(f, d, n, m, log=True, k = 100)
-    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n')
+    i_opt, y_opt = protes_fed_learning(f, d, n, m, log=True, k = 100)
+    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n | x opt = {i_opt}')
 
 
 if __name__ == '__main__':

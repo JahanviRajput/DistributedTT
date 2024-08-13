@@ -8,7 +8,7 @@ import numpy as np
 from time import perf_counter as tpc
 
 
-from protes import protes
+from protes import protes_fed_learning
 
 
 def func_build():
@@ -34,8 +34,8 @@ def demo():
     m = int(5.E+4)         # Number of requests to the objective function
 
     t = tpc()
-    i_opt, y_opt = protes(f, d, n, m, k=1000, k_top=5, log=True)
-    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n')
+    i_opt, y_opt = protes_fed_learning(f, d, n, m, k=1000, nbb=5, log=True)
+    print(f'\nRESULT | y opt = {y_opt:-11.4e} | time = {tpc()-t:-10.4f}\n\n | x opt = {i_opt} \n')
 
 
 if __name__ == '__main__':
