@@ -1,7 +1,6 @@
 from opti import Opti
 import sys
 
-sys.path.append("../../")
 try:
     import sys
     sys.path.append("../")
@@ -27,7 +26,7 @@ class OptiProtesNoisy(Opti):
 
     def _init(self):
         if not with_protes:
-            self.err = 'Need "protes" module'
+            self.err = 'Need noisy protes module'
             return
 
     def _optimize(self):

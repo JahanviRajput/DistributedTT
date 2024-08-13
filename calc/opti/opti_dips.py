@@ -1,7 +1,4 @@
 from opti import Opti
-import sys
-sys.path.append("../")
-from protes import protes_fed_learning
 
 try:
     import sys
@@ -13,7 +10,7 @@ except Exception as e:
 
 
 class OptifedProtes(Opti):
-    def __init__(self, name='fedprotes', *args, **kwargs):
+    def __init__(self, name='dips', *args, **kwargs):
         super().__init__(name, *args, **kwargs)
 
     def opts(self, k=100, k_gd=1, lr=5.E-2, r=5, P=None,
@@ -28,7 +25,7 @@ class OptifedProtes(Opti):
 
     def _init(self):
         if not with_protes:
-            self.err = 'Need "fed protes" module'
+            self.err = 'Need DiPTS module'
             return
 
     def _optimize(self):
