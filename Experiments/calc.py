@@ -154,7 +154,6 @@ def calc(m=int(1.E+4), seed=0):
 
         log(bm.info())
         res[bm.name] = {}
-        a = np.random.randint(0, 1000)
         for opti_name, Opti in Optis.items():
             # np.random.seed(seed)
             opti = Opti(name=opti_name)
@@ -171,6 +170,7 @@ def calc(m=int(1.E+4), seed=0):
                 opti.opts(P=P)
            
             opti.optimize()
+            log(opti.info())
             res[bm.name][opti.name] = [opti.m_list, opti.y_list, opti.y]
             _save(res)
 
