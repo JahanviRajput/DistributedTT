@@ -3,7 +3,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import subset_submod_pts
+    from Methods import subset_submod_pts
     with_module = True
 except Exception as e:
     with_module = False

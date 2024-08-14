@@ -2,7 +2,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import protes_noise_comparison
+    from Methods import protes_noise_comparison
     with_protes = True
 except Exception as e:
     with_protes = False

@@ -8,7 +8,7 @@ import numpy as np
 from time import perf_counter as tpc
 import sys
 sys.path.append('../')  
-from protes import dipts
+from Methods import dipts
 
 
 def func_build_Schwefel(d, n):

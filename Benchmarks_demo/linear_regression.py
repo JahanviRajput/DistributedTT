@@ -11,7 +11,7 @@ from time import perf_counter as tpc
 import sys
 import pandas as pd
 sys.path.append('../')  
-from protes import protes
+from Methods import protes
 
 
 def func_buildfed(d, n):

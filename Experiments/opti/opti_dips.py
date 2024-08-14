@@ -3,7 +3,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import dipts_fun
+    from Methods import dipts_fun
     with_module = True
 except Exception as e:
     with_module = False

@@ -3,7 +3,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import noisy_PTS
+    from Methods import noisy_PTS
     with_module = True
 except Exception as e:
     with_module = False

@@ -26,8 +26,8 @@ sns.mpl.rcParams['legend.frameon'] = 'False'
 
 import sys
 sys.path.append("../")
-from protes import protes_fed_learning
-from protes import protes
+from Methods import protes_fed_learning
+from Methods import protes
 
 def func_build(d=7, n=16):
     """Ackley function. See https://www.sfu.ca/~ssurjano/ackley.html."""

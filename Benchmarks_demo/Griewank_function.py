@@ -9,7 +9,7 @@ from time import perf_counter as tpc
 
 import sys
 sys.path.append('../') 
-from protes import dipts
+from Methods import dipts
 import numpy as np
 
 def func_build_griewank(d, n):
