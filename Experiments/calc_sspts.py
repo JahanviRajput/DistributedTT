@@ -109,7 +109,8 @@ BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
 
 from opti import *
 Optis = {
-    'SSPTS' : Optisspts
+    'SSPTS' : Optisspts,
+    'BS-0': OptiProtes
 }
 
 
