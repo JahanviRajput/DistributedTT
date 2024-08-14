@@ -14,14 +14,15 @@ class Optisspts(Opti):
         super().__init__(name, *args, **kwargs)
 
     def opts(self, k=100, k_gd=1, lr=5.E-2, r=5, P=None,
-             seed=0, nbb = 10):
+             seed=0, subset_size = 10, sub_fun = 'FL'):
         self.opts_k = k
         self.opts_k_gd = k_gd
         self.opts_lr = lr
         self.opts_r = r
         self.opts_P = P
         self.opts_seed = seed
-        self.opts_nbb = nbb
+        self.subset_size = subset_size
+        self.sub_fun = sub_fun
 
     def _init(self):
         if not with_module:
@@ -29,9 +30,14 @@ class Optisspts(Opti):
             return
 
     def _optimize(self):
+        self.sub_fun = 'FL'
         protes_subset_submod(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, P=self.opts_P,
          k_gd=self.opts_k_gd, lr=self.opts_lr, r=self.opts_r, is_max=self.is_max,
-            seed=self.opts_seed)
+            seed=self.opts_seed, sub_fun = self.sub_fun)
+        self.sub_fun = 'LD'
+        protes_subset_submod(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, P=self.opts_P,
+         k_gd=self.opts_k_gd, lr=self.opts_lr, r=self.opts_r, is_max=self.is_max,
+            seed=self.opts_seed, sub_fun = self.sub_fun)
     
         
         
