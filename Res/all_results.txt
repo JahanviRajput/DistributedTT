@@ -1,0 +1,771 @@
+------------------------------------------------------------------------------
+BM: F-01                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Chung Reynolds function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    Note that we have specified smaller limits for argument changes
+    relative to the commonly used [-100, 100].
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("34. Chung Reynolds Function"; Continuous, Differentiable,
+    Partially-separable, Scalable, Unimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-01
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncChung
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-13.32, -10.71, <...>, -11.72]
+Upper grid limit                         : [13.32, 10.77, <...>, 11.71]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 3.077e+00 | y 9.57095e+05 <<< DONE
+BS-0         > m 1.0e+04 | t 3.141e+00 | y 1.12323e+02 <<< DONE
+BS-1         > m 1.0e+04 | t 4.252e-02 | y 1.12323e+02 <<< DONE
+BS-2         > m 1.0e+04 | t 1.191e-01 | y 1.12323e+02 <<< DONE
+BS-3         > m 1.0e+04 | t 2.400e+01 | y 1.12323e+02 <<< DONE
+BS-4         > m 1.0e+04 | t 2.834e+01 | y 1.12323e+02 <<< DONE
+BS-5         > m 1.0e+04 | t 2.103e+01 | y 2.90317e+04 <<< DONE
+BS-6         > m 1.0e+04 | t 2.000e+01 | y 1.12323e+02 <<< DONE
+BS-7         > m 1.0e+04 | t 8.666e+01 | y 1.12323e+02 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-02                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Dixon function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x_i = 2^{(2^i-2) / 2^i}
+    (i = 1, ..., d), y = 0;  note that this function achieves a global
+    minimum at more than one point.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("48. Dixon & Price Function"; Continuous, Differentiable,
+    Non-Separable, Scalable, Unimodal).
+    See also https://www.sfu.ca/~ssurjano/dixonpr.html for details.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-02
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncDixon
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-13.32, -10.71, <...>, -11.72]
+Upper grid limit                         : [13.32, 10.77, <...>, 11.71]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : [1.00, 0.71, <...>, 0.51]
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.548e+00 | y 1.95802e+06 <<< DONE
+BS-0         > m 1.0e+04 | t 2.536e+00 | y 1.15212e+02 <<< DONE
+BS-1         > m 1.0e+04 | t 4.282e-02 | y 3.58597e+02 <<< DONE
+BS-2         > m 9.4e+03 | t 7.816e-02 | y 1.15212e+02 <<< DONE
+BS-3         > m 1.0e+04 | t 2.407e+01 | y 1.15212e+02 <<< DONE
+BS-4         > m 1.0e+04 | t 2.881e+01 | y 4.16885e+02 <<< DONE
+BS-5         > m 1.0e+04 | t 2.113e+01 | y 1.04055e+05 <<< DONE
+BS-6         > m 1.0e+04 | t 2.208e+01 | y 1.15212e+02 <<< DONE
+BS-7         > m 1.0e+04 | t 9.033e+01 | y 1.15212e+02 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-03                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Pathological function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-100, 100] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("87. Pathological Function"; Continuous, Differentiable,
+    Non-separable, Non-scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-03
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncPathological
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-133.18, -107.08, <...>, -117.18]
+Upper grid limit                         : [133.16, 107.70, <...>, 117.06]
+Grid kind                                : cheb
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.321e+00 | y 2.85749e+00 <<< DONE
+BS-0         > m 1.0e+04 | t 2.549e+00 | y 1.50443e+00 <<< DONE
+BS-1         > m 1.0e+04 | t 4.637e-02 | y 1.49542e+00 <<< DONE
+BS-2         > m 9.5e+03 | t 1.651e-01 | y 1.68448e+00 <<< DONE
+BS-3         > m 1.0e+04 | t 2.457e+01 | y 2.50662e+00 <<< DONE
+BS-4         > m 1.0e+04 | t 2.778e+01 | y 1.50384e+00 <<< DONE
+BS-5         > m 1.0e+04 | t 2.108e+01 | y 2.52598e+00 <<< DONE
+BS-6         > m 1.0e+04 | t 2.018e+01 | y 1.85201e+00 <<< DONE
+BS-7         > m 1.0e+04 | t 6.594e+01 | y 1.62909e+00 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-04                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Pinter function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("89. Pinter Function"; Continuous, Differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-04
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncPinter
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-13.32, -10.71, <...>, -11.72]
+Upper grid limit                         : [13.32, 10.77, <...>, 11.71]
+Grid kind                                : cheb
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.331e+00 | y 3.92609e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 2.782e+00 | y 1.24965e+02 <<< DONE
+BS-1         > m 1.0e+04 | t 5.132e-02 | y 1.24965e+02 <<< DONE
+BS-2         > m 9.2e+03 | t 2.007e-01 | y 2.09344e+02 <<< DONE
+BS-3         > m 1.0e+04 | t 2.404e+01 | y 1.24965e+02 <<< DONE
+BS-4         > m 1.0e+04 | t 3.849e+01 | y 1.24965e+02 <<< DONE
+BS-5         > m 1.0e+04 | t 2.174e+01 | y 1.11740e+03 <<< DONE
+BS-6         > m 1.0e+04 | t 2.077e+01 | y 1.24965e+02 <<< DONE
+BS-7         > m 1.0e+04 | t 9.843e+01 | y 1.24965e+02 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-05                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Powell function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-1, 1] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("93. Powell Function"; Continuous, Differentiable,
+    Separable, Scalable, Unimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-05
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncPowell
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-1.33, -1.07, <...>, -1.17]
+Upper grid limit                         : [1.33, 1.08, <...>, 1.17]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.559e+00 | y 1.85851e+01 <<< DONE
+BS-0         > m 1.0e+04 | t 2.536e+00 | y 2.09192e-02 <<< DONE
+BS-1         > m 1.0e+04 | t 4.393e-02 | y 2.09192e-02 <<< DONE
+BS-2         > m 9.4e+03 | t 7.484e-02 | y 2.09192e-02 <<< DONE
+BS-3         > m 1.0e+04 | t 2.402e+01 | y 2.09192e-02 <<< DONE
+BS-4         > m 1.0e+04 | t 2.961e+01 | y 2.09192e-02 <<< DONE
+BS-5         > m 1.0e+04 | t 2.122e+01 | y 1.01787e+00 <<< DONE
+BS-6         > m 1.0e+04 | t 2.011e+01 | y 2.09192e-02 <<< DONE
+BS-7         > m 1.0e+04 | t 8.814e+01 | y 2.09192e-02 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-06                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Qing function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [0, 500] (with small random shift; note
+    also that we limit this function to this domain instead of often
+    used [-500, 500] to make sure it has a single global minimum);
+    the exact global minimum is known: x_i = \sqrt{i}, y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("98. Qing Function"; Continuous, Differentiable, Separable
+    Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-06
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncQing
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-93.45, -22.32, <...>, -52.06]
+Upper grid limit                         : [593.51, 520.76, <...>, 552.37]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : [1.00, 1.41, <...>, 2.65]
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.301e+00 | y 6.64076e+11 <<< DONE
+BS-0         > m 1.0e+04 | t 2.536e+00 | y 4.31771e+06 <<< DONE
+BS-1         > m 1.0e+04 | t 4.146e-02 | y 4.81916e+06 <<< DONE
+BS-2         > m 9.4e+03 | t 7.573e-02 | y 4.31771e+06 <<< DONE
+BS-3         > m 1.0e+04 | t 3.137e+01 | y 4.56371e+06 <<< DONE
+BS-4         > m 1.0e+04 | t 4.119e+01 | y 1.29679e+07 <<< DONE
+BS-5         > m 1.0e+04 | t 2.118e+01 | y 3.17252e+09 <<< DONE
+BS-6         > m 1.0e+04 | t 2.027e+01 | y 2.54210e+10 <<< DONE
+BS-7         > m 1.0e+04 | t 9.350e+01 | y 4.31771e+06 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-07                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Rosenbrock function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-2.048, 2.048] (with small random shift);
+    the exact global minimum is known: x = [1, ..., 1], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("105. Rosenbrock Function 1"; Continuous, Differentiable,
+    Non-Separable, Scalable, Unimodal).
+    See also https://www.sfu.ca/~ssurjano/rosen.html for details (note
+    that we use grid limits from this link).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-07
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncRosenbrock
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-2.81, -2.23, <...>, -2.47]
+Upper grid limit                         : [2.81, 2.22, <...>, 2.48]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 1.00, ..., 1.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.304e+00 | y 1.14303e+04 <<< DONE
+BS-0         > m 1.0e+04 | t 2.540e+00 | y 2.22584e+01 <<< DONE
+BS-1         > m 1.0e+04 | t 4.291e-02 | y 3.02475e+01 <<< DONE
+BS-2         > m 9.3e+03 | t 1.006e-01 | y 2.40558e+01 <<< DONE
+BS-3         > m 1.0e+04 | t 2.384e+01 | y 2.40558e+01 <<< DONE
+BS-4         > m 1.0e+04 | t 2.876e+01 | y 2.40558e+01 <<< DONE
+BS-5         > m 1.0e+04 | t 2.108e+01 | y 2.77551e+03 <<< DONE
+BS-6         > m 1.0e+04 | t 2.016e+01 | y 2.58741e+01 <<< DONE
+BS-7         > m 1.0e+04 | t 8.731e+01 | y 2.40558e+01 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-08                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Salomon function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-100, 100] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("110. Salomon Function"; Continuous, Differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-08
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncSalomon
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-133.18, -107.08, <...>, -117.18]
+Upper grid limit                         : [133.16, 107.70, <...>, 117.06]
+Grid kind                                : cheb
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.312e+00 | y 3.14004e+01 <<< DONE
+BS-0         > m 1.0e+04 | t 2.764e+00 | y 3.30053e+00 <<< DONE
+BS-1         > m 1.0e+04 | t 4.280e-02 | y 3.30492e+00 <<< DONE
+BS-2         > m 9.1e+03 | t 1.897e-01 | y 5.08720e+00 <<< DONE
+BS-3         > m 1.0e+04 | t 2.541e+01 | y 3.30053e+00 <<< DONE
+BS-4         > m 1.0e+04 | t 3.064e+01 | y 3.30053e+00 <<< DONE
+BS-5         > m 1.0e+04 | t 2.118e+01 | y 1.50327e+01 <<< DONE
+BS-6         > m 1.0e+04 | t 2.005e+01 | y 3.30053e+00 <<< DONE
+BS-7         > m 1.0e+04 | t 8.862e+01 | y 3.30053e+00 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-09                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Sphere function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-5.12, 5.12] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("136. Sphere Function"; Continuous, Differentiable,
+    Separable, Scalable, Multimodal).
+    See also https://www.sfu.ca/~ssurjano/spheref.html for details (note
+    that we use grid limits from this link).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-09
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncSphere
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-6.82, -5.48, <...>, -6.00]
+Upper grid limit                         : [6.82, 5.51, <...>, 5.99]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.505e+00 | y 2.56459e+02 <<< DONE
+BS-0         > m 1.0e+04 | t 2.533e+00 | y 2.77827e+00 <<< DONE
+BS-1         > m 1.0e+04 | t 4.203e-02 | y 2.77827e+00 <<< DONE
+BS-2         > m 3.6e+03 | t 3.297e-02 | y 2.77827e+00 <<< DONE
+BS-3         > m 1.0e+04 | t 3.357e+01 | y 2.77827e+00 <<< DONE
+BS-4         > m 1.0e+04 | t 2.898e+01 | y 2.77827e+00 <<< DONE
+BS-5         > m 1.0e+04 | t 2.103e+01 | y 4.46659e+01 <<< DONE
+BS-6         > m 1.0e+04 | t 2.004e+01 | y 2.77827e+00 <<< DONE
+BS-7         > m 1.0e+04 | t 8.805e+01 | y 2.77827e+00 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-10                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Squares function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-10, 10] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("142. Sum Squares Function"; Continuous, Differentiable,
+    Separable, Scalable, Unimodal).
+    See also https://www.sfu.ca/~ssurjano/sumsqu.html for details.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-10
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncSquares
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-13.32, -10.71, <...>, -11.72]
+Upper grid limit                         : [13.32, 10.77, <...>, 11.71]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.297e+00 | y 3.73695e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 2.537e+00 | y 4.02869e+01 <<< DONE
+BS-1         > m 1.0e+04 | t 4.108e-02 | y 4.02869e+01 <<< DONE
+BS-2         > m 9.5e+03 | t 8.607e-02 | y 4.02869e+01 <<< DONE
+BS-3         > m 1.0e+04 | t 2.550e+01 | y 4.02869e+01 <<< DONE
+BS-4         > m 1.0e+04 | t 2.986e+01 | y 4.02869e+01 <<< DONE
+BS-5         > m 1.0e+04 | t 2.110e+01 | y 6.54735e+02 <<< DONE
+BS-6         > m 1.0e+04 | t 1.997e+01 | y 4.02869e+01 <<< DONE
+BS-7         > m 1.0e+04 | t 9.015e+01 | y 4.02869e+01 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-11                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Trid function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-d^2, d^2] (with small random shift);
+    the exact global minimum is known: xi = i (d+1-i),
+    y = -d (d+4) (d-1) / 6.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("149. Trid Function 6"; Continuous, Differentiable,
+    Non-separable, Non-scalable, Multimodal).
+    See also https://www.sfu.ca/~ssurjano/trid.html for details (note
+    that we use global minimum and grid limits from this link).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-11
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncTrid
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-67.32, -53.37, <...>, -59.20]
+Upper grid limit                         : [67.33, 53.07, <...>, 59.26]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : -7.7000e+01
+Exact min (point)                        : [7.00, 12.00, <...>, 7.00]
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.592e+00 | y 3.72196e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 2.542e+00 | y -4.31029e+01 <<< DONE
+BS-1         > m 1.0e+04 | t 4.372e-02 | y 7.96262e+01 <<< DONE
+BS-2         > m 9.9e+03 | t 8.548e-02 | y -4.31029e+01 <<< DONE
+BS-3         > m 1.0e+04 | t 4.036e+01 | y -2.50422e+01 <<< DONE
+BS-4         > m 1.0e+04 | t 2.863e+01 | y 2.35084e+02 <<< DONE
+BS-5         > m 1.0e+04 | t 2.117e+01 | y 3.02411e+03 <<< DONE
+BS-6         > m 1.0e+04 | t 2.352e+01 | y -2.50422e+01 <<< DONE
+BS-7         > m 1.0e+04 | t 9.178e+01 | y -4.31029e+01 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-12                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Trigonometric function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [0, pi] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("152. Trigonometric Function 1"; Continuous, Differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-12
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncTrigonometric
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-0.59, -0.14, <...>, -0.33]
+Upper grid limit                         : [3.73, 3.27, <...>, 3.47]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.326e+00 | y 3.47945e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 2.555e+00 | y 1.12389e+00 <<< DONE
+BS-1         > m 1.0e+04 | t 4.735e-02 | y 1.13877e+00 <<< DONE
+BS-2         > m 9.8e+03 | t 1.098e-01 | y 1.12389e+00 <<< DONE
+BS-3         > m 1.0e+04 | t 2.606e+01 | y 1.12389e+00 <<< DONE
+BS-4         > m 1.0e+04 | t 2.938e+01 | y 1.12389e+00 <<< DONE
+BS-5         > m 1.0e+04 | t 2.148e+01 | y 2.16021e+01 <<< DONE
+BS-6         > m 1.0e+04 | t 2.446e+01 | y 1.68861e+02 <<< DONE
+BS-7         > m 1.0e+04 | t 8.382e+01 | y 1.12389e+00 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-13                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Wavy function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-pi, pi] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("164. W / Wavy Function"; Continuous, Differentiable,
+    Separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-13
+-----------------------------------------|             >               Options
+Param "k" for Wavy function [opt_k]      : 10.00
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncWavy
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-4.18, -3.36, <...>, -3.68]
+Upper grid limit                         : [4.18, 3.38, <...>, 3.68]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.585e+00 | y 9.93606e-01 <<< DONE
+BS-0         > m 1.0e+04 | t 2.554e+00 | y 7.31039e-01 <<< DONE
+BS-1         > m 1.0e+04 | t 4.564e-02 | y 7.31039e-01 <<< DONE
+BS-2         > m 3.6e+03 | t 3.515e-02 | y 7.31039e-01 <<< DONE
+BS-3         > m 1.0e+04 | t 2.464e+01 | y 8.75314e-01 <<< DONE
+BS-4         > m 1.0e+04 | t 3.240e+01 | y 7.31039e-01 <<< DONE
+BS-5         > m 1.0e+04 | t 2.133e+01 | y 9.00633e-01 <<< DONE
+BS-6         > m 1.0e+04 | t 2.003e+01 | y 1.44313e+00 <<< DONE
+BS-7         > m 1.0e+04 | t 6.600e+01 | y 7.31039e-01 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-14                                 | DIMS =    7 | <MODE SIZE> =    16.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Analytical Yang function (continuous).
+    The dimension and mode size may be any (default are d=7, n=16).
+    Default grid limits are [-2 pi, 2 pi] (with small random shift);
+    the exact global minimum is known: x = [0, ..., 0], y = 0.
+    See the work Momin Jamil, Xin-She Yang. "A literature survey of
+    benchmark functions for global optimization problems". Journal of
+    Mathematical Modelling and Numerical Optimisation 2013; 4:150-194
+    ("169. Xin-She Yang Function 2"; Discontinuous, Non-differentiable,
+    Non-separable, Scalable, Multimodal).
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 7
+Mode size [n]                            : 16, ..., 16
+Random seed [seed]                       : 42
+Benchmark name [name]                    : F-14
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmFuncYang
+Benchmark is continuous                  : YES
+Benchmark with minimization task         : YES
+Lower grid limit                         : [-8.37, -6.73, <...>, -7.36]
+Upper grid limit                         : [8.37, 6.77, <...>, 7.35]
+Grid kind                                : cheb
+TT-cores are available                   : YES
+Use cache                                : no
+Has constraint                           : no
+Exact min (value)                        : 0.0000e+00
+Exact min (point)                        : 0.00, ..., 0.00
+==============================================================================
+
+Noisy_protes > m 1.0e+04 | t 2.303e+00 | y 1.21659e+00 <<< DONE
+BS-0         > m 1.0e+04 | t 2.535e+00 | y 3.57718e-02 <<< DONE
+BS-1         > m 1.0e+04 | t 4.439e-02 | y 3.57718e-02 <<< DONE
+BS-2         > m 9.5e+03 | t 1.027e-01 | y 3.57718e-02 <<< DONE
+BS-3         > m 1.0e+04 | t 2.938e+01 | y 6.70053e-02 <<< DONE
+BS-4         > m 1.0e+04 | t 3.777e+01 | y 4.23745e-02 <<< DONE
+BS-5         > m 1.0e+04 | t 2.134e+01 | y 3.66564e-01 <<< DONE
+BS-6         > m 1.0e+04 | t 2.017e+01 | y 8.25035e-02 <<< DONE
+BS-7         > m 1.0e+04 | t 6.642e+01 | y 4.13434e-02 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: P-11                                 | DIMS =   50 | <MODE SIZE> =     2.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Quadratic unconstrained binary optimization (QUBO) Max-Cut problem
+    represented as a discrete function. The dimension may be any
+    (default is 100), and the mode size should be 2. The default value
+    of the probability of the connection in the graph if 0.5 (pcon=5).
+    The benchmark needs "networkx==3.0" and "qubogen==0.1.1" libraries.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 50
+Mode size [n]                            : 2, ..., 2
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-11
+Connection probability [pcon]            : 5
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmQuboMaxcut
+Benchmark is discrete                    : YES
+Benchmark with minimization task         : YES
+Use cache                                : no
+Has constraint                           : no
+==============================================================================
+
+DiPTS        > m 1.0e+04 | t 3.939e+00 | y -3.62000e+02 <<< DONE
+Noisy_protes > m 1.0e+04 | t 2.483e+00 | y -3.56000e+02 <<< DONE
+BS-0         > m 1.0e+04 | t 2.772e+00 | y -3.57000e+02 <<< DONE
+BS-1         > m 1.0e+04 | t 5.182e-02 | y -3.51000e+02 <<< DONE
+BS-2         > m 1.0e+04 | t 3.683e-01 | y -3.43000e+02 <<< DONE
+BS-3         > m 1.0e+04 | t 1.863e+01 | y -3.30000e+02 <<< DONE
+BS-4         > m 1.0e+04 | t 2.263e+01 | y -3.46000e+02 <<< DONE
+BS-5         > m 1.0e+04 | t 1.602e+01 | y -3.24000e+02 <<< DONE
+BS-6         > m 1.0e+04 | t 1.678e+01 | y -3.33000e+02 <<< DONE
+BS-7         > m 1.0e+04 | t 7.030e+01 | y -3.60000e+02 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: P-12                                 | DIMS =   50 | <MODE SIZE> =     2.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Quadratic unconstrained binary optimization (QUBO) Minimum Vertex
+    Cover (MVC) problem represented as a discrete function. The
+    dimension may be any (default is 100), and the mode size should be
+    2. The default value of the probability of the connection in the
+    graph if 0.5 (pcon=5). The benchmark needs "networkx==3.0" and
+    "qubogen==0.1.1" libraries.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 50
+Mode size [n]                            : 2, ..., 2
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-12
+Connection probability [pcon]            : 5
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmQuboMvc
+Benchmark is discrete                    : YES
+Benchmark with minimization task         : YES
+Use cache                                : no
+Has constraint                           : no
+==============================================================================
+
+DiPTS        > m 1.0e+04 | t 3.511e+00 | y -5.92600e+03 <<< DONE
+Noisy_protes > m 1.0e+04 | t 2.593e+00 | y -5.92600e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 2.364e+00 | y -5.92600e+03 <<< DONE
+BS-1         > m 1.0e+04 | t 5.246e-02 | y -5.92600e+03 <<< DONE
+BS-2         > m 1.0e+04 | t 3.473e-01 | y -5.92400e+03 <<< DONE
+BS-3         > m 1.0e+04 | t 1.684e+01 | y -5.61200e+03 <<< DONE
+BS-4         > m 1.0e+04 | t 2.303e+01 | y -5.92600e+03 <<< DONE
+BS-5         > m 1.0e+04 | t 1.621e+01 | y -5.45600e+03 <<< DONE
+BS-6         > m 1.0e+04 | t 1.577e+01 | y -5.92500e+03 <<< DONE
+BS-7         > m 1.0e+04 | t 7.308e+01 | y -5.92500e+03 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: P-13                                 | DIMS =   50 | <MODE SIZE> =     2.0
+-----------------------------------------|             >           Description
+..............................................................................
+    Quadratic unconstrained binary optimization (QUBO) knapsack problem
+    represented as a discrete function. The dimension may be any
+    (default is 100), and the mode size should be 2. It needs
+    "qubogen==0.1.1" library.
+..............................................................................
+-----------------------------------------|             >             Arguments
+Dimension [d]                            : 50
+Mode size [n]                            : 2, ..., 2
+Random seed [seed]                       : 42
+Benchmark name [name]                    : P-13
+-----------------------------------------|             >            Properties
+Package version                          : 0.9.0
+Benchmark class name                     : BmQuboKnapQuad
+Benchmark is discrete                    : YES
+Benchmark with minimization task         : YES
+Use cache                                : no
+Has constraint                           : no
+==============================================================================
+
+DiPTS        > m 1.0e+04 | t 3.490e+00 | y -3.04638e+00 <<< DONE
+Noisy_protes > m 1.0e+04 | t 2.378e+00 | y -1.38736e+00 <<< DONE
+BS-0         > m 1.0e+04 | t 2.370e+00 | y -3.26532e+00 <<< DONE
+BS-1         > m 1.0e+04 | t 5.742e-02 | y -3.26532e+00 <<< DONE
+BS-2         > m 9.9e+03 | t 3.350e-01 | y -3.24385e+00 <<< DONE
+BS-3         > m 1.0e+04 | t 1.962e+01 | y -3.12655e+00 <<< DONE
+BS-4         > m 1.0e+04 | t 2.201e+01 | y 1.66016e+00 <<< DONE
+BS-5         > m 1.0e+04 | t 1.615e+01 | y 3.81620e+02 <<< DONE
+BS-6         > m 1.0e+04 | t 1.666e+01 | y -3.26505e+00 <<< DONE
+BS-7         > m 1.0e+04 | t 7.276e+01 | y -3.26532e+00 <<< DONE
+
+
+
