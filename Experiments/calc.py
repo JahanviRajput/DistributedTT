@@ -49,37 +49,37 @@ bms = [
     
     BmFuncChung(d = 7, n = 16, name ='F-01'),
 
-    # BmFuncDixon(d = 7, n = 16, name ='F-02'), 
+    BmFuncDixon(d = 7, n = 16, name ='F-02'), 
 
-    # BmFuncPathological(d = 7, n = 16, name ='F-03'),
-    # BmFuncPinter(d = 7, n = 16, name ='F-04'), 
-    # BmFuncPowell(d = 7, n = 16, name ='F-05'), 
+    BmFuncPathological(d = 7, n = 16, name ='F-03'),
+    BmFuncPinter(d = 7, n = 16, name ='F-04'), 
+    BmFuncPowell(d = 7, n = 16, name ='F-05'), 
 
-    # BmFuncQing(d = 7, n = 16, name ='F-06'),
-    # BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
+    BmFuncQing(d = 7, n = 16, name ='F-06'),
+    BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    # BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
-    # BmFuncSphere(d = 7, n = 16, name ='F-09'), 
-    # BmFuncSquares(d = 7, n = 16, name ='F-10'),
-    # BmFuncTrid(d = 7, n = 16, name ='F-11'), 
-    # BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
-    # BmFuncWavy(d = 7, n = 16, name ='F-13'), 
-    # BmFuncYang(d = 7, n = 16, name ='F-14'),
+    BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
+    BmFuncSphere(d = 7, n = 16, name ='F-09'), 
+    BmFuncSquares(d = 7, n = 16, name ='F-10'),
+    BmFuncTrid(d = 7, n = 16, name ='F-11'), 
+    BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
+    BmFuncWavy(d = 7, n = 16, name ='F-13'), 
+    BmFuncYang(d = 7, n = 16, name ='F-14'),
 
     
     
-    # BmQuboMaxcut(d=50, name='P-11'),
-    # BmQuboMvc(d=50, name='P-12'),
-    # BmQuboKnapQuad(d=50, name='P-13'),
-    # BmQuboKnapAmba(d=50, name='P-14'),
+    BmQuboMaxcut(d=50, name='P-11'),
+    BmQuboMvc(d=50, name='P-12'),
+    BmQuboKnapQuad(d=50, name='P-13'),
+    BmQuboKnapAmba(d=50, name='P-14'),
 
-    # BmOcSimple(d=25, name='P-15'),
-    # BmOcSimple(d=50, name='P-16'),
-    # BmOcSimple(d=100, name='P-17'),
+    BmOcSimple(d=25, name='P-15'),
+    BmOcSimple(d=50, name='P-16'),
+    BmOcSimple(d=100, name='P-17'),
 
-    # BmOcSimpleConstr(d=25, name='P-18'),
-    # BmOcSimpleConstr(d=50, name='P-19'),
-    # BmOcSimpleConstr(d=100, name='P-20'),
+    BmOcSimpleConstr(d=25, name='P-18'),
+    BmOcSimpleConstr(d=50, name='P-19'),
+    BmOcSimpleConstr(d=100, name='P-20'),
 ]
 
 
