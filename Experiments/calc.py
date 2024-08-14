@@ -71,15 +71,15 @@ bms = [
     BmQuboMaxcut(d=50, name='P-11'),
     BmQuboMvc(d=50, name='P-12'),
     BmQuboKnapQuad(d=50, name='P-13'),
-    BmQuboKnapAmba(d=50, name='P-14'),
+    # BmQuboKnapAmba(d=50, name='P-14'),
 
-    BmOcSimple(d=25, name='P-15'),
-    BmOcSimple(d=50, name='P-16'),
-    BmOcSimple(d=100, name='P-17'),
+    # BmOcSimple(d=25, name='P-15'),
+    # BmOcSimple(d=50, name='P-16'),
+    # BmOcSimple(d=100, name='P-17'),
 
-    BmOcSimpleConstr(d=25, name='P-18'),
-    BmOcSimpleConstr(d=50, name='P-19'),
-    BmOcSimpleConstr(d=100, name='P-20'),
+    # BmOcSimpleConstr(d=25, name='P-18'),
+    # BmOcSimpleConstr(d=50, name='P-19'),
+    # BmOcSimpleConstr(d=100, name='P-20'),
 ]
 
 
