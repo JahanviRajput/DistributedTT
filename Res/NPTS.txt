@@ -1,0 +1,42 @@
+
+ F-01 
+ Noisy PTS > m 1.0e+04 | t  4.2518 | y -6.5251e-01
+
+ F-02 
+ Noisy PTS > m 1.0e+04 | t  3.0150 | y  8.9549e-01
+
+ F-03 
+ Noisy PTS > m 1.0e+04 | t  3.1135 | y -4.9452e-01
+
+ F-04 
+ Noisy PTS > m 1.0e+04 | t  3.3792 | y -2.3301e-01
+
+ F-05 
+ Noisy PTS > m 1.0e+04 | t  3.0469 | y -3.9443e-01
+
+ F-06 
+ Noisy PTS > m 1.0e+04 | t  2.9817 | y  1.0461e+01
+
+ F-07 
+ Noisy PTS > m 1.0e+04 | t  3.0488 | y  9.9751e+01
+
+ F-08 
+ Noisy PTS > m 1.0e+04 | t  3.1118 | y -2.1634e-01
+
+ F-09 
+ Noisy PTS > m 1.0e+04 | t  2.9775 | y -3.9232e-01
+
+ F-10 
+ Noisy PTS > m 1.0e+04 | t  2.9993 | y -3.7603e-01
+
+ F-11 
+ Noisy PTS > m 1.0e+04 | t  3.1315 | y -6.7477e+01
+
+ F-12 
+ Noisy PTS > m 1.0e+04 | t  3.1097 | y -3.5488e-01
+
+ F-13 
+ Noisy PTS > m 1.0e+04 | t  3.0089 | y -3.7925e-01
+
+ F-14 
+ Noisy PTS > m 1.0e+04 | t  3.0056 | y -4.3930e-01

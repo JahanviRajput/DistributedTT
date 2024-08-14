@@ -3,7 +3,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import protes_noise
+    from protes import noisy_PTS
     with_module = True
 except Exception as e:
     with_module = False
@@ -29,7 +29,7 @@ class OptiNoisyPTS(Opti):
             return
 
     def _optimize(self):
-        protes_noise(self.f_batch, self.d, self.n[0], self.m_max, P=self.opts_P,
+        noisy_PTS(self.f_batch, self.d, self.n[0], self.m_max, P=self.opts_P,
             k=self.opts_k, k_top=self.opts_k_top, k_gd=self.opts_k_gd,
             lr=self.opts_lr, r=self.opts_r, is_max=self.is_max,
             seed=self.opts_seed)
