@@ -4,12 +4,12 @@ try:
     import sys
     sys.path.append("../")
     from protes import protes_fed_learning
-    with_protes = True
+    with_module = True
 except Exception as e:
-    with_protes = False
+    with_module = False
 
 
-class OptifedProtes(Opti):
+class OptiDiPTS(Opti):
     def __init__(self, name='dips', *args, **kwargs):
         super().__init__(name, *args, **kwargs)
 
@@ -24,7 +24,7 @@ class OptifedProtes(Opti):
         self.opts_nbb = nbb
 
     def _init(self):
-        if not with_protes:
+        if not with_module:
             self.err = 'Need DiPTS module'
             return
 

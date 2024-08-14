@@ -4,9 +4,9 @@ try:
     import sys
     sys.path.append("../")
     from protes import SS_PROTES
-    with_protes = True
+    with_module = True
 except Exception as e:
-    with_protes = False
+    with_module = False
 
 
 class Optisspts(Opti):
@@ -24,7 +24,7 @@ class Optisspts(Opti):
         self.opts_nbb = nbb
 
     def _init(self):
-        if not with_protes:
+        if not with_module:
             self.err = 'Need "SSPTS" module'
             return
 

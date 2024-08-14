@@ -1,7 +1,4 @@
 from opti import Opti
-import sys
-
-sys.path.append("../../")
 try:
     import sys
     sys.path.append("../")

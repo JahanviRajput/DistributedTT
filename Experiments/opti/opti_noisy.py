@@ -1,17 +1,16 @@
 from opti import Opti
-import sys
 
 try:
     import sys
     sys.path.append("../")
     from protes import protes_noise
-    with_protes = True
+    with_module = True
 except Exception as e:
-    with_protes = False
+    with_module = False
 
 
-class OptiProtesNoisy(Opti):
-    def __init__(self, name='noisyprotes', *args, **kwargs):
+class OptiNoisyPTS(Opti):
+    def __init__(self, name='NPTS', *args, **kwargs):
         super().__init__(name, *args, **kwargs)
 
     def opts(self, k=100, k_top=10, k_gd=1, lr=5.E-2, r=5, P=None,
@@ -25,8 +24,8 @@ class OptiProtesNoisy(Opti):
         self.opts_seed = seed
 
     def _init(self):
-        if not with_protes:
-            self.err = 'Need noisy protes module'
+        if not with_module:
+            self.err = 'Need NPTS module'
             return
 
     def _optimize(self):

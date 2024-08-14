@@ -46,38 +46,25 @@ from constr import ind_tens_max_ones
 from teneva_bm import *
 
 bms = [
-    # BmFuncAckley(d=7, n=16, name='P-01'),
-    # BmFuncAlpine(d=7, n=16, name='P-02'),
-    # BmFuncExp(d=7, n=16, name='P-03'),
-    # BmFuncGriewank(d=7, n=16, name='P-04'),
-    # BmFuncMichalewicz(d=7, n=16, name='P-05'),
-    # BmFuncPiston(d=7, n=16, name='P-06'),
-    # BmFuncQing(d=7, n=16, name='P-07'),
-    # BmFuncRastrigin(d=7, n=16, name='P-08'),
-    # BmFuncSchaffer(d=7, n=16, name='P-09'),
-    # BmFuncSchwefel(d=7, n=16, name='P-10'), 
+    
+    BmFuncChung(d = 7, n = 16, name ='F-01'),
 
-    ### new analytic functions
-    #### need upgarded version
+    # BmFuncDixon(d = 7, n = 16, name ='F-02'), 
 
-    BmFuncChung(d = 7, n = 16, name ='P-21'),
+    # BmFuncPathological(d = 7, n = 16, name ='F-03'),
+    # BmFuncPinter(d = 7, n = 16, name ='F-04'), 
+    # BmFuncPowell(d = 7, n = 16, name ='F-05'), 
 
-    BmFuncDixon(d = 7, n = 16, name ='P-22'), 
+    # BmFuncQing(d = 7, n = 16, name ='F-06'),
+    # BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    BmFuncPathological(d = 7, n = 16, name ='P-23'),
-    BmFuncPinter(d = 7, n = 16, name ='P-24'), 
-    BmFuncPowell(d = 7, n = 16, name ='P-25'), 
-
-    BmFuncQing(d = 7, n = 16, name ='P-26'),
-    BmFuncRosenbrock(d = 7, n = 16, name ='P-27'),
-
-    BmFuncSalomon(d = 7, n = 16, name ='P-28'), 
-    BmFuncSphere(d = 7, n = 16, name ='P-29'), 
-    BmFuncSquares(d = 7, n = 16, name ='P-30'),
-    BmFuncTrid(d = 7, n = 16, name ='P-31'), 
-    BmFuncTrigonometric(d = 7, n = 16, name ='P-32'), 
-    BmFuncWavy(d = 7, n = 16, name ='P-33'), 
-    BmFuncYang(d = 7, n = 16, name ='P-34'),
+    # BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
+    # BmFuncSphere(d = 7, n = 16, name ='F-09'), 
+    # BmFuncSquares(d = 7, n = 16, name ='F-10'),
+    # BmFuncTrid(d = 7, n = 16, name ='F-11'), 
+    # BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
+    # BmFuncWavy(d = 7, n = 16, name ='F-13'), 
+    # BmFuncYang(d = 7, n = 16, name ='F-14'),
 
     
     
@@ -96,10 +83,25 @@ bms = [
 ]
 
 
-BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
-                'P-08', 'P-09', 'P-10', 'P-21', 'P-22','P-23', 'P-24', 
-                'P-25', 'P-26', 'P-27', 'P-28', 'P-29', 'P-30', 
-                'P-31', 'P-32', 'P-33', 'P-34']
+### suplimentary metrial functions
+# bms = [
+#     BmFuncAckley(d=7, n=16, name='P-01'),
+#     BmFuncAlpine(d=7, n=16, name='P-02'),
+#     BmFuncExp(d=7, n=16, name='P-03'),
+#     BmFuncGriewank(d=7, n=16, name='P-04'),
+#     BmFuncMichalewicz(d=7, n=16, name='P-05'),
+#     BmFuncPiston(d=7, n=16, name='P-06'),
+#     BmFuncQing(d=7, n=16, name='P-07'),
+#     BmFuncRastrigin(d=7, n=16, name='P-08'),
+#     BmFuncSchaffer(d=7, n=16, name='P-09'),
+#     BmFuncSchwefel(d=7, n=16, name='P-10'), 
+# ]
+# BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
+#                 'P-08', 'P-09', 'P-10']
+
+
+BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
+           'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
 BM_QUBO      = ['P-11', 'P-12', 'P-13', 'P-14']
 BM_OC        = ['P-15', 'P-16', 'P-17']
 BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
@@ -107,9 +109,10 @@ BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
 
 from opti import *
 Optis = {
-    'my': OptifedProtes,
-    'Noisy': OptiProtesNoisy,
+    'DiPTS': OptiDiPTS,
+    'NoisyPTS': OptiNoisyPTS,
     'Noisy_protes': OptiProtesNoisyComp,
+    'SSPTS' : Optisspts,
     'BS-0': OptiProtes,
     'BS-1': OptiTTOpt,
     'BS-2': OptiOptimatt,
@@ -122,7 +125,7 @@ Optis = {
 
 
 class Log:
-    def __init__(self, fpath='../Results_new_fun/fun_21_34.txt'):
+    def __init__(self, fpath='../Results/all_results.txt'):
         self.fpath = fpath
         self.is_new = True
 
@@ -166,18 +169,8 @@ def calc(m=int(1.E+4), seed=0):
                 Pr = jnp.array(P[-1], copy=True)
                 P = [Pl, Pm, Pr]
                 opti.opts(P=P)
-            if opti_name == 'mw':
-                def optimize_function():
-                    opti.optimize()
-                    return opti.y
-                with concurrent.futures.ThreadPoolExecutor() as executor:
-                    results = list(executor.map(optimize_function))
-                y_values = zip(*results)
-                opti.y = np.min(y_values)
-                print("opti.y",opti.y)
-            else:
-                print("opti_name",opti_name)
-                opti.optimize()
+           
+            opti.optimize()
             res[bm.name][opti.name] = [opti.m_list, opti.y_list, opti.y]
             _save(res)
 
