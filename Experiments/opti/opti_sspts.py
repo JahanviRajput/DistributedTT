@@ -31,7 +31,7 @@ class Optisspts(Opti):
     def _optimize(self):
         protes_subset_submod(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, P=self.opts_P,
          k_gd=self.opts_k_gd, lr=self.opts_lr, r=self.opts_r, is_max=self.is_max,
-            seed=self.opts_seed, subset_size = self.subset_size)
+            seed=self.opts_seed)
     
         
         
