@@ -155,7 +155,7 @@ def _log(info, log=False, is_new=False, is_end=False):
     if not log or (not is_new and not is_end):
         return
 
-    text = f'protes > '
+    text = f'Noise + protes > '
     text += f'm {info["m"]:-7.1e} | '
     text += f't {info["t"]:-9.3e} | '
     text += f'y {info["y_opt"]:-11.4e}'

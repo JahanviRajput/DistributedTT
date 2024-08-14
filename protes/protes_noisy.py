@@ -169,7 +169,7 @@ def _log(info, log=False, is_new=False, is_end=False):
     if not log or (not is_new and not is_end):
         return
 
-    text = f'protes > '
+    text = f'NPTS > '
     text += f'm {info["m"]:-7.1e} | '
     text += f't {info["t"]:-9.3e} | '
     text += f'y {info["y_opt"]:-11.4e}'
@@ -283,37 +283,22 @@ bms = [
     
     BmFuncChung(d = 7, n = 16, name ='F-01'),
 
-    # BmFuncDixon(d = 7, n = 16, name ='F-02'), 
+    BmFuncDixon(d = 7, n = 16, name ='F-02'), 
 
-    # BmFuncPathological(d = 7, n = 16, name ='F-03'),
-    # BmFuncPinter(d = 7, n = 16, name ='F-04'), 
-    # BmFuncPowell(d = 7, n = 16, name ='F-05'), 
+    BmFuncPathological(d = 7, n = 16, name ='F-03'),
+    BmFuncPinter(d = 7, n = 16, name ='F-04'), 
+    BmFuncPowell(d = 7, n = 16, name ='F-05'), 
 
-    # BmFuncQing(d = 7, n = 16, name ='F-06'),
-    # BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
+    BmFuncQing(d = 7, n = 16, name ='F-06'),
+    BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    # BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
-    # BmFuncSphere(d = 7, n = 16, name ='F-09'), 
-    # BmFuncSquares(d = 7, n = 16, name ='F-10'),
-    # BmFuncTrid(d = 7, n = 16, name ='F-11'), 
-    # BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
-    # BmFuncWavy(d = 7, n = 16, name ='F-13'), 
-    # BmFuncYang(d = 7, n = 16, name ='F-14'),
-
-    
-    
-    # BmQuboMaxcut(d=50, name='P-11'),
-    # BmQuboMvc(d=50, name='P-12'),
-    # BmQuboKnapQuad(d=50, name='P-13'),
-    # BmQuboKnapAmba(d=50, name='P-14'),
-
-    # BmOcSimple(d=25, name='P-15'),
-    # BmOcSimple(d=50, name='P-16'),
-    # BmOcSimple(d=100, name='P-17'),
-
-    # BmOcSimpleConstr(d=25, name='P-18'),
-    # BmOcSimpleConstr(d=50, name='P-19'),
-    # BmOcSimpleConstr(d=100, name='P-20'),
+    BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
+    BmFuncSphere(d = 7, n = 16, name ='F-09'), 
+    BmFuncSquares(d = 7, n = 16, name ='F-10'),
+    BmFuncTrid(d = 7, n = 16, name ='F-11'), 
+    BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
+    BmFuncWavy(d = 7, n = 16, name ='F-13'), 
+    BmFuncYang(d = 7, n = 16, name ='F-14'),
 ]
 
 
@@ -336,9 +321,6 @@ bms = [
 
 BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
            'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
-BM_QUBO      = ['P-11', 'P-12', 'P-13', 'P-14']
-BM_OC        = ['P-15', 'P-16', 'P-17']
-BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
 
 def prep_bm_func(bm):
     shift = np.random.randn(bm.d) / 10
@@ -349,7 +331,7 @@ def prep_bm_func(bm):
     return bm
 
 class Log:
-    def __init__(self, fpath='../Results_new_fun/log_noisy_functions.txt'):
+    def __init__(self, fpath='../Results/noisy_PTS.txt'):
         self.fpath = fpath
         self.is_new = True
 
@@ -390,8 +372,8 @@ def calc(m=int(1.E+4), seed=0):
         i_opt, y_optk = protes_noise(f, d, n, m, log=True, k=100)
         time_taken = (time.time() - t_start)
         print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
-        log(f'\n {f.name}:  y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f} | x opt = {i_opt}')
-    
+        log(f'\n {f.name} \n Noisy PTS > m {m:-7.1e} | t {time_taken:-7.4f} | y {y_optk:-11.4e}')
+        
 
 if __name__ == '__main__':
     calc()

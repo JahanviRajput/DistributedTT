@@ -164,7 +164,7 @@ def _log(info, log=False, is_new=False, is_end=False):
     if not log or (not is_new and not is_end):
         return
 
-    text = f'protes > '
+    text = f'DiPTS > '
     text += f'm {info["m"]:-7.1e} | '
     text += f't {info["t"]:-9.3e} | '
     text += f'y {info["y_opt"]:-11.4e}'
@@ -362,7 +362,7 @@ def func():
             i_opt, y_optk = protes_fed_learning(f, d, n, m, log=True, k=100, nbb= 10)
             time_taken = (time.time() - t_start)
             print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
-            log(f'\n {f.name}:  y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f} | x opt = {i_opt}')
+            log(f'\n {f.name} \n DiPTS > m {m:-7.1e} | t {time_taken:-7.4f} | y {y_optk:-11.4e}')
         
     calc()
 
