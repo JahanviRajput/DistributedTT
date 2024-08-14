@@ -8,7 +8,6 @@ import random
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 import time
-# from protes import protes
 jax.config.update('jax_enable_x64', True)
 jax.config.update('jax_platform_name', 'cpu')
 jax.default_device(jax.devices('cpu')[0])
@@ -163,7 +162,7 @@ def _likelihood(Yl, Ym, Yr, Zm, i):
 
 
 class Log:
-    def __init__(self, fpath='../Results_new_fun/log_ss_protes_fl.txt'):
+    def __init__(self, fpath='../Results/ss_protes_fl.txt'):
         self.fpath = fpath
         self.is_new = True
 
@@ -368,4 +367,4 @@ def calc(m=int(1.E+4), seed=0):
     # df['t'] = t_value
     # df.to_csv("../Results_new_fun/FL_ssprotes.csv")
 
-# calc()
+calc()
