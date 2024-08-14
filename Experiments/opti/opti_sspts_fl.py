@@ -9,7 +9,7 @@ except Exception as e:
     with_module = False
 
 
-class Optissptsld(Opti):
+class Optissptsfl(Opti):
     def __init__(self, name='SSPTS', *args, **kwargs):
         super().__init__(name, *args, **kwargs)
 
