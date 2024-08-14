@@ -128,7 +128,7 @@ for r in r_list:
     
     for i, k in enumerate(k_list):
         x = k_top_list
-        y = [result[r][k][x_cur]['y'] for x_cur in x]
+        y = [result[r][k][x_cur]['y'].tolist() for x_cur in x]
         ax.plot(x, y, label=f'Batch size (K) = {k:-3d}',
             linestyle='--',
             marker=marker[i], markersize=10, linewidth=2, color=colors[i])

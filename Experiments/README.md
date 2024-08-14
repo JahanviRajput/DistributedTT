@@ -13,4 +13,4 @@
 
 ## Usage
 
-Please, see the scripts `calc.py` and `calc_one.py`.
+Please, see the scripts `calc.py` 
