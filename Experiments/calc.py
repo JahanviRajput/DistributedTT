@@ -112,7 +112,6 @@ Optis = {
     'DiPTS': OptiDiPTS,
     'NoisyPTS': OptiNoisyPTS,
     'Noisy_protes': OptiProtesNoisyComp,
-    'SSPTS' : Optisspts,
     'BS-0': OptiProtes,
     'BS-1': OptiTTOpt,
     'BS-2': OptiOptimatt,
