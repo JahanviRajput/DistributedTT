@@ -280,38 +280,25 @@ import jax.numpy as jnp
 from teneva_bm import *
 
 bms = [
-    # BmFuncAckley(d=7, n=16, name='P-01'),
-    # BmFuncAlpine(d=7, n=16, name='P-02'),
-    # BmFuncExp(d=7, n=16, name='P-03'),
-    # BmFuncGriewank(d=7, n=16, name='P-04'),
-    # BmFuncMichalewicz(d=7, n=16, name='P-05'),
-    # BmFuncPiston(d=7, n=16, name='P-06'),
-    # BmFuncQing(d=7, n=16, name='P-07'),
-    # BmFuncRastrigin(d=7, n=16, name='P-08'),
-    # BmFuncSchaffer(d=7, n=16, name='P-09'),
-    # BmFuncSchwefel(d=7, n=16, name='P-10'), 
+    
+    BmFuncChung(d = 7, n = 16, name ='F-01'),
 
-    ## new analytic functions
-    ### need upgarded version
+    # BmFuncDixon(d = 7, n = 16, name ='F-02'), 
 
-    BmFuncChung(d = 7, n = 16, name ='P-21'),
+    # BmFuncPathological(d = 7, n = 16, name ='F-03'),
+    # BmFuncPinter(d = 7, n = 16, name ='F-04'), 
+    # BmFuncPowell(d = 7, n = 16, name ='F-05'), 
 
-    BmFuncDixon(d = 7, n = 16, name ='P-22'), 
+    # BmFuncQing(d = 7, n = 16, name ='F-06'),
+    # BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    BmFuncPathological(d = 7, n = 16, name ='P-23'),
-    BmFuncPinter(d = 7, n = 16, name ='P-24'), 
-    BmFuncPowell(d = 7, n = 16, name ='P-25'), 
-
-    BmFuncQing(d = 7, n = 16, name ='P-26'),
-    BmFuncRosenbrock(d = 7, n = 16, name ='P-27'),
-
-    BmFuncSalomon(d = 7, n = 16, name ='P-28'), 
-    BmFuncSphere(d = 7, n = 16, name ='P-29'), 
-    BmFuncSquares(d = 7, n = 16, name ='P-30'),
-    BmFuncTrid(d = 7, n = 16, name ='P-31'), 
-    BmFuncTrigonometric(d = 7, n = 16, name ='P-32'), 
-    BmFuncWavy(d = 7, n = 16, name ='P-33'), 
-    BmFuncYang(d = 7, n = 16, name ='P-34'),
+    # BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
+    # BmFuncSphere(d = 7, n = 16, name ='F-09'), 
+    # BmFuncSquares(d = 7, n = 16, name ='F-10'),
+    # BmFuncTrid(d = 7, n = 16, name ='F-11'), 
+    # BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
+    # BmFuncWavy(d = 7, n = 16, name ='F-13'), 
+    # BmFuncYang(d = 7, n = 16, name ='F-14'),
 
     
     
@@ -330,13 +317,28 @@ bms = [
 ]
 
 
+### suplimentary metrial functions
+# bms = [
+#     BmFuncAckley(d=7, n=16, name='P-01'),
+#     BmFuncAlpine(d=7, n=16, name='P-02'),
+#     BmFuncExp(d=7, n=16, name='P-03'),
+#     BmFuncGriewank(d=7, n=16, name='P-04'),
+#     BmFuncMichalewicz(d=7, n=16, name='P-05'),
+#     BmFuncPiston(d=7, n=16, name='P-06'),
+#     BmFuncQing(d=7, n=16, name='P-07'),
+#     BmFuncRastrigin(d=7, n=16, name='P-08'),
+#     BmFuncSchaffer(d=7, n=16, name='P-09'),
+#     BmFuncSchwefel(d=7, n=16, name='P-10'), 
+# ]
 # BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
-#                 'P-08', 'P-09', 'P-10', 'P-21', 'P-22','P-23', 'P-24', 
-#                 'P-25', 'P-26', 'P-27', 'P-28', 'P-29', 'P-30', 
-#                 'P-31', 'P-32', 'P-33', 'P-34']
-BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-05', 'P-06', 'P-07',
-                'P-08', 'P-09', 'P-10']
-# BM_FUNC      = ['P-04']
+#                 'P-08', 'P-09', 'P-10']
+
+
+BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
+           'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
+BM_QUBO      = ['P-11', 'P-12', 'P-13', 'P-14']
+BM_OC        = ['P-15', 'P-16', 'P-17']
+BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
 
 def prep_bm_func(bm):
     shift = np.random.randn(bm.d) / 10

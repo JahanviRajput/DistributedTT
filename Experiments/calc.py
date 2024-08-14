@@ -155,10 +155,12 @@ def calc(m=int(1.E+4), seed=0):
         res[bm.name] = {}
         for opti_name, Opti in Optis.items():
             # np.random.seed(seed)
+            if opti_name == 'DiPTS' and bm.name in BM_FUNC:
+                continue
             opti = Opti(name=opti_name)
             opti.prep(bm.get, bm.d, bm.n, m, is_f_batch=True)
 
-            if bm.name in BM_OC_CONSTR and opti_name == 'Our' or opti_name == 'my':
+            if bm.name in BM_OC_CONSTR and opti_name == 'BS-0' or opti_name == 'Noisy_protes' or opti_name  == 'NoisyPTS' or opti_name == 'DiPTS':
                 # Problem with constraint for PROTES (we use the initial
                 # approximation of the special form in this case):
                 P = ind_tens_max_ones(bm.d, 3, opti.opts_r)
