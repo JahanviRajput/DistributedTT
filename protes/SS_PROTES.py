@@ -367,4 +367,5 @@ def calc(m=int(1.E+4), seed=0):
     # df['t'] = t_value
     # df.to_csv("../Results_new_fun/FL_ssprotes.csv")
 
-calc()
+if __name__ == '__main__':
+    calc()

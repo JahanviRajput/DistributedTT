@@ -231,152 +231,150 @@ def _sample(Yl, Ym, Yr, Zm, key):
     ir = jnp.array(ir, dtype=jnp.int32)
     return jnp.hstack((il, im, ir))
 
-# def func():
-#     import matplotlib as mpl
-#     import numpy as np
-#     import os
-#     import pickle
-#     import sys
-#     from time import perf_counter as tpc
+def func():
+    import matplotlib as mpl
+    import numpy as np
+    import os
+    import pickle
+    import sys
+    from time import perf_counter as tpc
 
-#     import concurrent.futures
-#     from concurrent.futures import ThreadPoolExecutor
+    import concurrent.futures
+    from concurrent.futures import ThreadPoolExecutor
 
-#     mpl.rcParams.update({
-#         'font.family': 'normal',
-#         'font.serif': [],
-#         'font.sans-serif': [],
-#         'font.monospace': [],
-#         'font.size': 12,
-#         'text.usetex': False,
-#     })
-
-
-#     import matplotlib.cm as cm
-#     import matplotlib.pyplot as plt
-#     from matplotlib.ticker import MaxNLocator
-#     import seaborn as sns
+    mpl.rcParams.update({
+        'font.family': 'normal',
+        'font.serif': [],
+        'font.sans-serif': [],
+        'font.monospace': [],
+        'font.size': 12,
+        'text.usetex': False,
+    })
 
 
-#     sns.set_context('paper', font_scale=2.5)
-#     sns.set_style('white')
-#     sns.mpl.rcParams['legend.frameon'] = 'False'
+    import matplotlib.cm as cm
+    import matplotlib.pyplot as plt
+    from matplotlib.ticker import MaxNLocator
+    import seaborn as sns
 
 
-#     from jax.config import config
-#     config.update('jax_enable_x64', True)
-#     os.environ['JAX_PLATFORM_NAME'] = 'cpu'
+    sns.set_context('paper', font_scale=2.5)
+    sns.set_style('white')
+    sns.mpl.rcParams['legend.frameon'] = 'False'
 
 
-#     import jax.numpy as jnp
+    from jax.config import config
+    config.update('jax_enable_x64', True)
+    os.environ['JAX_PLATFORM_NAME'] = 'cpu'
 
 
+    import jax.numpy as jnp
 
-#     from teneva_bm import *
 
-#     bms = [
-#         BmFuncAckley(d=7, n=16, name='P-01'),
-#         BmFuncAlpine(d=7, n=16, name='P-02'),
-#         BmFuncExp(d=7, n=16, name='P-03'),
-#         BmFuncGriewank(d=7, n=16, name='P-04'),
-#         BmFuncMichalewicz(d=7, n=16, name='P-05'),
-#         BmFuncPiston(d=7, n=16, name='P-06'),
-#         BmFuncQing(d=7, n=16, name='P-07'),
-#         BmFuncRastrigin(d=7, n=16, name='P-08'),
-#         BmFuncSchaffer(d=7, n=16, name='P-09'),
-#         BmFuncSchwefel(d=7, n=16, name='P-10'), 
+    bms = [
+        # BmFuncAckley(d=7, n=16, name='P-01'),
+        # BmFuncAlpine(d=7, n=16, name='P-02'),
+        # BmFuncExp(d=7, n=16, name='P-03'),
+        # BmFuncGriewank(d=7, n=16, name='P-04'),
+        # BmFuncMichalewicz(d=7, n=16, name='P-05'),
+        # BmFuncPiston(d=7, n=16, name='P-06'),
+        # BmFuncQing(d=7, n=16, name='P-07'),
+        # BmFuncRastrigin(d=7, n=16, name='P-08'),
+        # BmFuncSchaffer(d=7, n=16, name='P-09'),
+        # BmFuncSchwefel(d=7, n=16, name='P-10'), 
 
-#         ## new analytic functions
-#         ### need upgarded version
+        ## new analytic functions
+        ### need upgarded version
 
-#         # BmFuncChung(d = 7, n = 16, name ='P-21'),
+        # BmFuncChung(d = 7, n = 16, name ='P-21'),
 
-#         # BmFuncDixon(d = 7, n = 16, name ='P-22'), 
+        # BmFuncDixon(d = 7, n = 16, name ='P-22'), 
 
-#         # BmFuncPathological(d = 7, n = 16, name ='P-23'),
-#         # BmFuncPinter(d = 7, n = 16, name ='P-24'), 
-#         # BmFuncPowell(d = 7, n = 16, name ='P-25'), 
+        # BmFuncPathological(d = 7, n = 16, name ='P-23'),
+        # BmFuncPinter(d = 7, n = 16, name ='P-24'), 
+        # BmFuncPowell(d = 7, n = 16, name ='P-25'), 
 
-#         # BmFuncQing(d = 7, n = 16, name ='P-26'),
-#         # BmFuncRosenbrock(d = 7, n = 16, name ='P-27'),
+        # BmFuncQing(d = 7, n = 16, name ='P-26'),
+        # BmFuncRosenbrock(d = 7, n = 16, name ='P-27'),
 
-#         # BmFuncSalomon(d = 7, n = 16, name ='P-28'), 
-#         # BmFuncSphere(d = 7, n = 16, name ='P-29'), 
-#         # BmFuncSquares(d = 7, n = 16, name ='P-30'),
-#         # BmFuncTrid(d = 7, n = 16, name ='P-31'), 
-#         # BmFuncTrigonometric(d = 7, n = 16, name ='P-32'), 
-#         # BmFuncWavy(d = 7, n = 16, name ='P-33'), 
-#         # BmFuncYang(d = 7, n = 16, name ='P-34'),
+        # BmFuncSalomon(d = 7, n = 16, name ='P-28'), 
+        # BmFuncSphere(d = 7, n = 16, name ='P-29'), 
+        # BmFuncSquares(d = 7, n = 16, name ='P-30'),
+        # BmFuncTrid(d = 7, n = 16, name ='P-31'), 
+        # BmFuncTrigonometric(d = 7, n = 16, name ='P-32'), 
+        # BmFuncWavy(d = 7, n = 16, name ='P-33'), 
+        # BmFuncYang(d = 7, n = 16, name ='P-34'),
 
         
         
-#         # BmQuboMaxcut(d=50, name='P-11'),
-#         # BmQuboMvc(d=50, name='P-12'),
-#         # BmQuboKnapQuad(d=50, name='P-13'),
-#         # BmQuboKnapAmba(d=50, name='P-14'),
+        # BmQuboMaxcut(d=50, name='P-11'),
+        # BmQuboMvc(d=50, name='P-12'),
+        # BmQuboKnapQuad(d=50, name='P-13'),
+        # BmQuboKnapAmba(d=50, name='P-14'),
 
-#         # BmOcSimple(d=25, name='P-15'),
-#         # BmOcSimple(d=50, name='P-16'),
-#         # BmOcSimple(d=100, name='P-17'),
+        # BmOcSimple(d=25, name='P-15'),
+        # BmOcSimple(d=50, name='P-16'),
+        # BmOcSimple(d=100, name='P-17'),
 
-#         # BmOcSimpleConstr(d=25, name='P-18'),
-#         # BmOcSimpleConstr(d=50, name='P-19'),
-#         # BmOcSimpleConstr(d=100, name='P-20'),
-#     ]
+        # BmOcSimpleConstr(d=25, name='P-18'),
+        # BmOcSimpleConstr(d=50, name='P-19'),
+        # BmOcSimpleConstr(d=100, name='P-20'),
+    ]
 
 
-#     BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-05', 'P-06', 'P-07',
-#                     'P-08', 'P-09', 'P-10']
+    BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-05', 'P-06', 'P-07',
+                    'P-08', 'P-09', 'P-10']
 
-#     def prep_bm_func(bm):
-#         shift = np.random.randn(bm.d) / 10
-#         a_new = bm.a - (bm.b-bm.a) * shift
-#         b_new = bm.b + (bm.b-bm.a) * shift
-#         bm.set_grid(a_new, b_new)
-#         bm.prep()
-#         return bm
+    def prep_bm_func(bm):
+        shift = np.random.randn(bm.d) / 10
+        a_new = bm.a - (bm.b-bm.a) * shift
+        b_new = bm.b + (bm.b-bm.a) * shift
+        bm.set_grid(a_new, b_new)
+        bm.prep()
+        return bm
 
-#     class Log:
-#         def __init__(self, fpath='../Results/log_fed_fast.txt'):
-#             self.fpath = fpath
-#             self.is_new = True
+    class Log:
+        def __init__(self, fpath='../Results/log_fed_fast.txt'):
+            self.fpath = fpath
+            self.is_new = True
 
-#             if os.path.dirname(self.fpath):
-#                 os.makedirs(os.path.dirname(self.fpath), exist_ok=True)
+            if os.path.dirname(self.fpath):
+                os.makedirs(os.path.dirname(self.fpath), exist_ok=True)
 
-#         def __call__(self, text):
-#             print(text)
-#             with open(self.fpath, 'w' if self.is_new else 'a') as f:
-#                 f.write(text + '\n')
-#             self.is_new = False
+        def __call__(self, text):
+            print(text)
+            with open(self.fpath, 'w' if self.is_new else 'a') as f:
+                f.write(text + '\n')
+            self.is_new = False
 
-#     import random
-#     import time
-#     import pandas as pd
+    import random
+    import time
+    import pandas as pd
 
-#     def calc(m=int(1.E+4), seed=0):
-#         log = Log()
-#         i_opt = np.zeros(len(BM_FUNC))
-#         y_opt = np.zeros(len(BM_FUNC))
+    def calc(m=int(1.E+4), seed=0):
+        log = Log()
+        i_opt = np.zeros(len(BM_FUNC))
+        y_opt = np.zeros(len(BM_FUNC))
 
-#         d = 7              # Dimension
-#         n = 11             # Mode size
-#         m = int(10000)     # Number of requests to the objective function
-#         seed = [random.randint(0, 100) for _ in range(len(BM_FUNC))]
+        d = 7              # Dimension
+        n = 11             # Mode size
+        m = int(10000)     # Number of requests to the objective function
+        seed = [random.randint(0, 100) for _ in range(len(BM_FUNC))]
 
-#         for f in bms:
-#             if f.name in BM_FUNC:
-#                 # We carry out a small random shift of the function's domain,
-#                 # so that the optimum does not fall into the middle of the domain:
-#                 f = prep_bm_func(f)
-#             else:
-#                 f.prep()
-#             t_start = time.time()
-#             i_opt, y_optk = protes_fed_learning(f, d, n, m, log=True, k=100, nbb= 10)
-#             time_taken = (time.time() - t_start)
-#             print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
-#             log(f'\n {f.name}:  y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f} | x opt = {i_opt}')
+        for f in bms:
+            if f.name in BM_FUNC:
+                # We carry out a small random shift of the function's domain,
+                # so that the optimum does not fall into the middle of the domain:
+                f = prep_bm_func(f)
+            else:
+                f.prep()
+            t_start = time.time()
+            i_opt, y_optk = protes_fed_learning(f, d, n, m, log=True, k=100, nbb= 10)
+            time_taken = (time.time() - t_start)
+            print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
+            log(f'\n {f.name}:  y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f} | x opt = {i_opt}')
         
-#     # calc()
+    calc()
 
-# ## fun()
+if __name__ == '__main__':
+    func()
