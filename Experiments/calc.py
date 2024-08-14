@@ -155,7 +155,7 @@ def calc(m=int(1.E+4), seed=0):
         res[bm.name] = {}
         for opti_name, Opti in Optis.items():
             # np.random.seed(seed)
-            if opti_name == 'DiPTS' and opti_name  == 'NoisyPTS' and bm.name in BM_FUNC:
+            if bm.name in BM_FUNC and opti_name == 'DiPTS' or opti_name  == 'NoisyPTS':
                 continue
             opti = Opti(name=opti_name)
             opti.prep(bm.get, bm.d, bm.n, m, is_f_batch=True)
