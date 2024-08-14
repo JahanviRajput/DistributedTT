@@ -10,7 +10,8 @@ from .opti_ttopt import OptiTTOpt
 from .opti_dips import OptiDiPTS
 from .opti_noisy import OptiNoisyPTS
 from .opti_protes_noisy import OptiProtesNoisyComp
-from .opti_sspts import Optisspts
+from .opti_sspts_fl import Optissptsfl
+from .opti_sspts_ld import Optissptsld
 
 
 def opti_get():
@@ -26,5 +27,6 @@ def opti_get():
     optis.append(OptiTTOpt)
     optis.append(OptiNoisyPTS)
     opti.append(OptiProtesNoisyComp)
-    opti.append(Optisspts)
+    opti.append(Optissptsfl)
+    opti.append(Optissptsld)
     return optis

@@ -76,7 +76,7 @@ def protes_subset_submod(f, d, n, m=None, k=100, k_gd=1, lr=5.E-2, r=5, seed=0,
 
         if sub_fun == 'FL':
             obj = FacilityLocationFunction(n=k, data=I, mode="dense", metric="euclidean")
-        else:
+        elif sub_fun == 'LD':
             obj = LogDeterminantFunction(n=k, data=I, mode="dense", metric="euclidean", lambdaVal=1)
         subset = obj.maximize(budget=subset_size, optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
         ind = [i[0] for i in subset]
@@ -97,8 +97,7 @@ def protes_subset_submod(f, d, n, m=None, k=100, k_gd=1, lr=5.E-2, r=5, seed=0,
             break
 
         ind = jnp.argsort(y, kind='stable')
-        # ind = jnp.argsort(y, stable=True)
-        # ind = (ind[::-1] if is_max else ind)[:k_top]
+
         for _ in range(k_gd):
             state, P = optimize(state, P, I[ind, :])
 
