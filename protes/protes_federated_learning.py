@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore")
 
 from teneva_bm import *
 
-def protes_fed_learning(f, d, n, m=None,k=100, nbb = 10, k_gd=1, lr=5.E-2, r=5, seed=0,
+def dipts_fun(f, d, n, m=None,k=100, nbb = 10, k_gd=1, lr=5.E-2, r=5, seed=0,
            is_max=False, log=False, info={}, P=None, with_info_p=False,
            with_info_i_opt_list=False, with_info_full=False, sample_ext=None):
     time = tpc()
@@ -343,25 +343,18 @@ def func():
 
     def calc(m=int(1.E+4), seed=0):
         log = Log()
-        i_opt = np.zeros(len(BM_FUNC))
-        y_opt = np.zeros(len(BM_FUNC))
-
         d = 7              # Dimension
         n = 11             # Mode size
         m = int(10000)     # Number of requests to the objective function
-        seed = [random.randint(0, 100) for _ in range(len(BM_FUNC))]
 
         for f in bms:
             if f.name in BM_FUNC:
-                # We carry out a small random shift of the function's domain,
-                # so that the optimum does not fall into the middle of the domain:
                 f = prep_bm_func(f)
             else:
                 f.prep()
             t_start = time.time()
-            i_opt, y_optk = protes_fed_learning(f, d, n, m, log=True, k=100, nbb= 10)
+            i_opt, y_optk = dipts_fun(f, d, n, m, log=True, k=100, nbb= 10)
             time_taken = (time.time() - t_start)
-            print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
             log(f'\n {f.name} \n DiPTS > m {m:-7.1e} | t {time_taken:-7.4f} | y {y_optk:-11.4e}')
         
     calc()

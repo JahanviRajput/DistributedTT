@@ -3,7 +3,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import protes_fed_learning
+    from protes import dipts_fun
     with_module = True
 except Exception as e:
     with_module = False
@@ -29,7 +29,7 @@ class OptiDiPTS(Opti):
             return
 
     def _optimize(self):
-        protes_fed_learning(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, nbb = self.opts_nbb, P=self.opts_P,
+        dipts_fun(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, nbb = self.opts_nbb, P=self.opts_P,
          k_gd=self.opts_k_gd, lr=self.opts_lr, r=self.opts_r, is_max=self.is_max,
             seed=self.opts_seed)
     

@@ -15,7 +15,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-def protes_subset_submod(f, d, n, m=None, k=100, k_gd=1, lr=5.E-2, r=5, seed=0,
+def subset_submod_pts(f, d, n, m=None, k=100, k_gd=1, lr=5.E-2, r=5, seed=0,
            is_max=False, log=False, info={}, P=None, with_info_p=False,
            with_info_i_opt_list=False, with_info_full=False, sample_ext=None, subset_size = 10, sub_fun = 'FL'):
     time = tpc()
@@ -353,7 +353,7 @@ def calc(m=int(1.E+4), seed=0):
         
         log(f"\n {f.name} | d {d} \n")
     
-        i_opt, y_optk, t, m = protes_subset_submod(f, d, n, m, log=True, sub_fun = 'FL')
+        i_opt, y_optk, t, m = subset_submod_pts(f, d, n, m, log=True, sub_fun = 'FL')
     #     log(f"\n {f.name} | m {m} | y {y_optk} | t {t} |  x {i_opt}\n")
     #     m_value.append(m)
     #     y_value.append(y_optk)

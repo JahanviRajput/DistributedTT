@@ -3,7 +3,7 @@ from opti import Opti
 try:
     import sys
     sys.path.append("../")
-    from protes import protes_subset_submod
+    from protes import subset_submod_pts
     with_module = True
 except Exception as e:
     with_module = False
@@ -30,7 +30,7 @@ class Optissptsld(Opti):
             return
 
     def _optimize(self):
-        protes_subset_submod(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, P=self.opts_P,
+        subset_submod_pts(self.f_batch, self.d, self.n[0], self.m_max, k=self.opts_k, P=self.opts_P,
          k_gd=self.opts_k_gd, lr=self.opts_lr, r=self.opts_r, is_max=self.is_max,
             seed=self.opts_seed, sub_fun = self.sub_fun)
 
