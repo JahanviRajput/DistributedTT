@@ -47,54 +47,54 @@ from teneva_bm import *
 
 bms = [
     
-    BmFuncChung(d = 7, n = 16, name ='F-01'),
+    BmFuncChung(d = 10000, n = 16, name ='F-01'),
 
-    # BmFuncDixon(d = 7, n = 16, name ='F-02'), 
+    # BmFuncDixon(d = 10000, n = 16, name ='F-02'), 
 
-    # BmFuncPathological(d = 7, n = 16, name ='F-03'),
-    # BmFuncPinter(d = 7, n = 16, name ='F-04'), 
-    # BmFuncPowell(d = 7, n = 16, name ='F-05'), 
+    # BmFuncPathological(d = 10000, n = 16, name ='F-03'),
+    # BmFuncPinter(d = 10000, n = 16, name ='F-04'), 
+    # BmFuncPowell(d = 10000, n = 16, name ='F-05'), 
 
-    # BmFuncQing(d = 7, n = 16, name ='F-06'),
+    # BmFuncQing(d = 10000, n = 16, name ='F-06'),
     # BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    # BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
-    # BmFuncSphere(d = 7, n = 16, name ='F-09'), 
-    # BmFuncSquares(d = 7, n = 16, name ='F-10'),
-    # BmFuncTrid(d = 7, n = 16, name ='F-11'), 
-    # BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
-    # BmFuncWavy(d = 7, n = 16, name ='F-13'), 
-    # BmFuncYang(d = 7, n = 16, name ='F-14'),
+    # BmFuncSalomon(d = 10000, n = 16, name ='F-08'), 
+    # BmFuncSphere(d = 10000, n = 16, name ='F-09'), 
+    # BmFuncSquares(d = 10000, n = 16, name ='F-10'),
+    # BmFuncTrid(d = 10000, n = 16, name ='F-11'), 
+    # BmFuncTrigonometric(d = 10000, n = 16, name ='F-12'), 
+    # BmFuncWavy(d = 10000, n = 16, name ='F-13'), 
+    # BmFuncYang(d = 10000, n = 16, name ='F-14'),
 
     
     
-    # BmQuboMaxcut(d=50, name='P-11'),
-    # BmQuboMvc(d=50, name='P-12'),
-    # BmQuboKnapQuad(d=50, name='P-13'),
-    # BmQuboKnapAmba(d=50, name='P-14'),
+    # BmQuboMaxcut(d=10000, name='P-11'),
+    # BmQuboMvc(d=10000, name='P-12'),
+    # BmQuboKnapQuad(d=10000, name='P-13'),
+    # BmQuboKnapAmba(d=10000, name='P-14'),
 
-    # BmOcSimple(d=25, name='P-15'),
-    # BmOcSimple(d=50, name='P-16'),
-    # BmOcSimple(d=100, name='P-17'),
+    # BmOcSimple(d=10000, name='P-15'),
+    # BmOcSimple(d=10000, name='P-16'),
+    # BmOcSimple(d=10000, name='P-17'),
 
-    # BmOcSimpleConstr(d=25, name='P-18'),
-    # BmOcSimpleConstr(d=50, name='P-19'),
-    # BmOcSimpleConstr(d=100, name='P-20'),
+    # BmOcSimpleConstr(d=10000, name='P-18'),
+    # BmOcSimpleConstr(d=10000, name='P-19'),
+    # BmOcSimpleConstr(d=10000, name='P-20'),
 ]
 
 
 ### suplimentary metrial functions
 # bms = [
-#     BmFuncAckley(d=7, n=16, name='P-01'),
-#     BmFuncAlpine(d=7, n=16, name='P-02'),
-#     BmFuncExp(d=7, n=16, name='P-03'),
-#     BmFuncGriewank(d=7, n=16, name='P-04'),
-#     BmFuncMichalewicz(d=7, n=16, name='P-05'),
-#     BmFuncPiston(d=7, n=16, name='P-06'),
-#     BmFuncQing(d=7, n=16, name='P-07'),
-#     BmFuncRastrigin(d=7, n=16, name='P-08'),
-#     BmFuncSchaffer(d=7, n=16, name='P-09'),
-#     BmFuncSchwefel(d=7, n=16, name='P-10'), 
+#     BmFuncAckley(d=10000, n=16, name='P-01'),
+#     BmFuncAlpine(d=10000, n=16, name='P-02'),
+#     BmFuncExp(d=10000, n=16, name='P-03'),
+#     BmFuncGriewank(d=10000, n=16, name='P-04'),
+#     BmFuncMichalewicz(d=10000, n=16, name='P-05'),
+#     BmFuncPiston(d=10000, n=16, name='P-06'),
+#     BmFuncQing(d=10000, n=16, name='P-07'),
+#     BmFuncRastrigin(d=10000, n=16, name='P-08'),
+#     BmFuncSchaffer(d=10000, n=16, name='P-09'),
+#     BmFuncSchwefel(d=10000, n=16, name='P-10'), 
 # ]
 # BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
 #                 'P-08', 'P-09', 'P-10']
@@ -109,23 +109,12 @@ BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
 
 from opti import *
 Optis = {
-    'DiPTS': OptiDiPTS,
-    'NoisyPTS': OptiNoisyPTS,
-    'Noisy_protes': OptiProtesNoisyComp,
-    'SSPTS' : Optisspts,
-    'BS-0': OptiProtes,
-    'BS-1': OptiTTOpt,
-    'BS-2': OptiOptimatt,
-    'BS-3': OptiOPO,
-    'BS-4': OptiPSO,
-    'BS-5': OptiNB,
-    'BS-6': OptiSPSA,
-    'BS-7': OptiPortfolio,
+    'SSPTS' : Optisspts
 }
 
 
 class Log:
-    def __init__(self, fpath='../Results/all_results.txt'):
+    def __init__(self, fpath='../Results/sspts_results.txt'):
         self.fpath = fpath
         self.is_new = True
 
@@ -139,7 +128,7 @@ class Log:
         self.is_new = False
 
 
-def calc(m=int(1.E+4), seed=0):
+def calc_sspts_fun(m=int(1.E+4), seed=0):
     log = Log()
     res = {}
 
@@ -177,7 +166,6 @@ def calc(m=int(1.E+4), seed=0):
         log('\n\n')
 
 
-
 def text():
     res = _load()
 
@@ -209,7 +197,7 @@ def text():
     print(text)
 
 
-def _load(fpath='../Results/all_res.pickle'):
+def _load(fpath='../Results/sspts_res.pickle'):
     with open(fpath, 'rb') as f:
         res = pickle.load(f)
     return res
@@ -231,4 +219,4 @@ def _save(res, fpath='../Results/res.pickle'):
 
 
 if __name__ == '__main__':
-    calc()
+    calc_sspts_fun()
