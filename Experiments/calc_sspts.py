@@ -1,6 +1,3 @@
-### remove temp folders:
-### find . -mindepth 1 -maxdepth 1 -type d ! -name 'opti' ! -name 'figures' ! -name 'wfiles'  -exec rm -r {} +
-
 import matplotlib as mpl
 import numpy as np
 import os
@@ -49,37 +46,37 @@ bms = [
     
     BmFuncChung(d = 10000, n = 16, name ='F-01'),
 
-    # BmFuncDixon(d = 10000, n = 16, name ='F-02'), 
+    BmFuncDixon(d = 10000, n = 16, name ='F-02'), 
 
-    # BmFuncPathological(d = 10000, n = 16, name ='F-03'),
-    # BmFuncPinter(d = 10000, n = 16, name ='F-04'), 
-    # BmFuncPowell(d = 10000, n = 16, name ='F-05'), 
+    BmFuncPathological(d = 10000, n = 16, name ='F-03'),
+    BmFuncPinter(d = 10000, n = 16, name ='F-04'), 
+    BmFuncPowell(d = 10000, n = 16, name ='F-05'), 
 
-    # BmFuncQing(d = 10000, n = 16, name ='F-06'),
-    # BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
+    BmFuncQing(d = 10000, n = 16, name ='F-06'),
+    BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    # BmFuncSalomon(d = 10000, n = 16, name ='F-08'), 
-    # BmFuncSphere(d = 10000, n = 16, name ='F-09'), 
-    # BmFuncSquares(d = 10000, n = 16, name ='F-10'),
-    # BmFuncTrid(d = 10000, n = 16, name ='F-11'), 
-    # BmFuncTrigonometric(d = 10000, n = 16, name ='F-12'), 
-    # BmFuncWavy(d = 10000, n = 16, name ='F-13'), 
-    # BmFuncYang(d = 10000, n = 16, name ='F-14'),
+    BmFuncSalomon(d = 10000, n = 16, name ='F-08'), 
+    BmFuncSphere(d = 10000, n = 16, name ='F-09'), 
+    BmFuncSquares(d = 10000, n = 16, name ='F-10'),
+    BmFuncTrid(d = 10000, n = 16, name ='F-11'), 
+    BmFuncTrigonometric(d = 10000, n = 16, name ='F-12'), 
+    BmFuncWavy(d = 10000, n = 16, name ='F-13'), 
+    BmFuncYang(d = 10000, n = 16, name ='F-14'),
 
     
     
-    # BmQuboMaxcut(d=10000, name='P-11'),
-    # BmQuboMvc(d=10000, name='P-12'),
-    # BmQuboKnapQuad(d=10000, name='P-13'),
-    # BmQuboKnapAmba(d=10000, name='P-14'),
+    BmQuboMaxcut(d=10000, name='P-11'),
+    BmQuboMvc(d=10000, name='P-12'),
+    BmQuboKnapQuad(d=10000, name='P-13'),
+    BmQuboKnapAmba(d=10000, name='P-14'),
 
-    # BmOcSimple(d=10000, name='P-15'),
-    # BmOcSimple(d=10000, name='P-16'),
-    # BmOcSimple(d=10000, name='P-17'),
+    BmOcSimple(d=10000, name='P-15'),
+    BmOcSimple(d=10000, name='P-16'),
+    BmOcSimple(d=10000, name='P-17'),
 
-    # BmOcSimpleConstr(d=10000, name='P-18'),
-    # BmOcSimpleConstr(d=10000, name='P-19'),
-    # BmOcSimpleConstr(d=10000, name='P-20'),
+    BmOcSimpleConstr(d=10000, name='P-18'),
+    BmOcSimpleConstr(d=10000, name='P-19'),
+    BmOcSimpleConstr(d=10000, name='P-20'),
 ]
 
 
@@ -215,7 +212,7 @@ def _prep_bm_func(bm):
     return bm
 
 
-def _save(res, fpath='../Results/res.pickle'):
+def _save(res, fpath='../Results/sspts_res.pickle'):
     with open(fpath, 'wb') as f:
         pickle.dump(res, f, protocol=pickle.HIGHEST_PROTOCOL)
 

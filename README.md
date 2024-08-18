@@ -17,7 +17,7 @@ Method **DiPTS** (**Di**stributed **P**robabilistic **TE**nsor **S**ampling) for
 
 - `m` (int) - the number of allowed requests for a single black box to the objective function (the default value is `None`). If this parameter is not set, then the optimization process will continue until the objective function returns `None` instead of a list of values.
 - `k` (int) - the batch size for optimization (the default value is `100`).
-- `k_top` (int) - number of black boxes avaialble for parallel computation (it should be `< k`; the default value is `10`).
+- `nbb` (int) - number of black boxes avaialble for parallel computation (it should be `< k`; the default value is `10`).
 - `k_gd` (int) - number of gradient lifting iterations for each batch (the default value is `1`. Please note that this value ensures the maximum performance of the method, however, for a number of problems, a more accurate result is obtained by increasing this parameter, for example to `100`).
 - `lr` (float): learning rate for gradient lifting iterations (the default value is `5.E-2`. Please note that this value must be correlated with the parameter `k_gd`).
 - `r` (int): TT-rank of the constructed probability TT-tensor (the default value is `5`. Please note that we have not yet found problems where changing this value would lead to an improvement in the result).
@@ -33,7 +33,7 @@ Method **DiPTS** (**Di**stributed **P**robabilistic **TE**nsor **S**ampling) for
 
 To use this package, please install manually first the [python](https://www.python.org) programming language of the version `3.8` or `3.9`.
 
-> To ensure version stability, we recommend working in a virtual environment, as described in the `workflow.md`. Also note that `requirements.txt` contains `jax[cpu]`; if you need the GPU version of the `jax`, please install it yourself.
+> To ensure version stability, we recommend working in a virtual environment, as described in the `workflow.md`. Also note that `requirements.txt` contains `jax[cpu]`; if you need the GPU version of the `jax`, please install it yourself. For some function teneva_bm==0.1.0 require and for other upgraded version is required. Upgrade or use this according to function definition.
 
 
 ## Parameters of the `dipts` function
@@ -75,28 +75,6 @@ To use this package, please install manually first the [python](https://www.pyth
     jax.config.update('jax_platform_name', 'cpu')
     jax.default_device(jax.devices('cpu')[0]);
     ```
-
-
-## Authors
-
-- [Jahanvi Rajput](https://github.com/JahanviRajput)
-- [Drashthi Doshi](https://github.com/DrashthiD)
-
-
-## Citation
-
-If you find our approach and/or code useful in your research, please consider citing:
-
-```bibtex
-@article{Rajput2024DiPTS,
-    author    = {Rajput, Jahanvi and Doshi,Drashthi},
-    year      = {2024},
-    title     = {{DiPTS}: {Di}stributed Probabilistic Tensor Sampling},
-    journal   = {},
-    url       = {}
-}
-```
-
 
 
 ## License

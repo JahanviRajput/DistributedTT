@@ -15,9 +15,8 @@ from Methods import protes
 
 
 def func_buildfed(d, n):
-    """Ackley function. See https://www.sfu.ca/~ssurjano/ackley.html."""
 
-    df = pd.read_csv("fun_values.csv")
+    df = pd.read_csv("../Results/fun_values.csv")
     x = jnp.array(df ["x"])
     y = jnp.array(df ["y"])
 
@@ -38,17 +37,6 @@ def func_buildfed(d, n):
 
 
 def demo():
-    """A simple demonstration for discretized multivariate analytic function.
-
-    We will find the minimum of an implicitly given "d"-dimensional array
-    having "n" elements in each dimension. The array is obtained from the
-    discretization of an analytic function.
-
-    The result in console should looks like this (note that the exact minimum
-    of this function is y = 0 and it is reached at the origin of coordinates):
-
-
-    """
     d = 2              # Dimension
     n = 11             # Mode size
     m = int(1.E+3)       # Number of requests to the objective function
@@ -57,7 +45,7 @@ def demo():
     y = (2.5)*x
     data = pd.DataFrame({'x': x, 'y': y})
     # Write the DataFrame to a CSV file
-    data.to_csv('fun_values.csv', index=False)
+    data.to_csv('../Results/fun_values.csv', index=False)
 
     f = func_buildfed(d, n) # Target function, which defines the array elements
 
