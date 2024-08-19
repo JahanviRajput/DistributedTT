@@ -12,7 +12,8 @@ jax.config.update('jax_enable_x64', True)
 jax.config.update('jax_platform_name', 'cpu')
 jax.default_device(jax.devices('cpu')[0])
 import warnings
-
+from teneva_bm import *
+import os
 warnings.filterwarnings('ignore')
 
 def subset_submod_pts(f, d, n, m=None, k=100, k_gd=1, lr=5.E-2, r=5, seed=0,
@@ -250,121 +251,105 @@ def _sample(Yl, Ym, Yr, Zm, key):
     return jnp.hstack((il, im, ir))
 
 
+def func():
+    import matplotlib as mpl
+    import numpy as np
+    import os
+    import pickle
+    import sys
+    from time import perf_counter as tpc
 
-import matplotlib as mpl
-import numpy as np
-import os
-import pickle
-import sys
-from time import perf_counter as tpc
+    import concurrent.futures
+    from concurrent.futures import ThreadPoolExecutor
 
-import concurrent.futures
-from concurrent.futures import ThreadPoolExecutor
-
-mpl.rcParams.update({
-    'font.family': 'normal',
-    'font.serif': [],
-    'font.sans-serif': [],
-    'font.monospace': [],
-    'font.size': 12,
-    'text.usetex': False,
-})
-
-
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-import seaborn as sns
+    mpl.rcParams.update({
+        'font.family': 'normal',
+        'font.serif': [],
+        'font.sans-serif': [],
+        'font.monospace': [],
+        'font.size': 12,
+        'text.usetex': False,
+    })
 
 
-sns.set_context('paper', font_scale=2.5)
-sns.set_style('white')
-sns.mpl.rcParams['legend.frameon'] = 'False'
+    import matplotlib.cm as cm
+    import matplotlib.pyplot as plt
+    from matplotlib.ticker import MaxNLocator
+    import seaborn as sns
 
 
-from jax.config import config
-config.update('jax_enable_x64', True)
-os.environ['JAX_PLATFORM_NAME'] = 'cpu'
+    sns.set_context('paper', font_scale=2.5)
+    sns.set_style('white')
+    sns.mpl.rcParams['legend.frameon'] = 'False'
 
 
-import jax.numpy as jnp
+    from jax.config import config
+    config.update('jax_enable_x64', True)
+    os.environ['JAX_PLATFORM_NAME'] = 'cpu'
 
 
-
-from teneva_bm import *
-
-bms = [
-    BmFuncChung(d = int(1.E+4) , n = 16, name ='F-01'),
-
-    BmFuncDixon(d = int(1.E+4) , n = 16, name ='F-02'), 
-
-    BmFuncPathological(d = int(1.E+4) , n = 16, name ='F-03'),
-    BmFuncPinter(d = int(1.E+4), n = 16, name ='F-04'), 
-    BmFuncPowell(d = int(1.E+4), n = 16, name ='F-05'), 
-
-    BmFuncQing(d = int(1.E+4), n = 16, name ='F-06'),
-    BmFuncRosenbrock(d = int(1.E+4), n = 16, name ='F-07'),
-
-    BmFuncSalomon(d = int(1.E+4), n = 16, name ='F-08'), 
-    BmFuncSphere(d = int(1.E+4), n = 16, name ='F-09'), 
-    BmFuncSquares(d = int(1.E+4), n = 16, name ='F-10'),
-    BmFuncTrid(d = int(1.E+4), n = 16, name ='F-11'), 
-    BmFuncTrigonometric(d = int(1.E+4), n = 16, name ='F-12'), 
-    BmFuncWavy(d = int(1.E+4), n = 16, name ='F-13'), 
-    BmFuncYang(d = int(1.E+4), n = 16, name ='F-14'),
-
-]
+    import jax.numpy as jnp
 
 
-BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
+    bms = [
+        BmFuncChung(d = int(1.E+4) , n = 16, name ='F-01'),
+
+        BmFuncDixon(d = int(1.E+4) , n = 16, name ='F-02'), 
+
+        BmFuncPathological(d = int(1.E+4) , n = 16, name ='F-03'),
+        BmFuncPinter(d = int(1.E+4), n = 16, name ='F-04'), 
+        BmFuncPowell(d = int(1.E+4), n = 16, name ='F-05'), 
+
+        BmFuncQing(d = int(1.E+4), n = 16, name ='F-06'),
+        BmFuncRosenbrock(d = int(1.E+4), n = 16, name ='F-07'),
+
+        BmFuncSalomon(d = int(1.E+4), n = 16, name ='F-08'), 
+        BmFuncSphere(d = int(1.E+4), n = 16, name ='F-09'), 
+        BmFuncSquares(d = int(1.E+4), n = 16, name ='F-10'),
+        BmFuncTrid(d = int(1.E+4), n = 16, name ='F-11'), 
+        BmFuncTrigonometric(d = int(1.E+4), n = 16, name ='F-12'), 
+        BmFuncWavy(d = int(1.E+4), n = 16, name ='F-13'), 
+        BmFuncYang(d = int(1.E+4), n = 16, name ='F-14'),
+
+    ]
 
 
-def prep_bm_func(bm):
-    shift = np.random.randn(bm.d) / 10
-    a_new = bm.a - (bm.b-bm.a) * shift
-    b_new = bm.b + (bm.b-bm.a) * shift
-    bm.set_grid(a_new, b_new)
-    bm.prep()
-    return bm
+    BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
 
 
-import random
-import time
-import pandas as pd
+    def prep_bm_func(bm):
+        shift = np.random.randn(bm.d) / 10
+        a_new = bm.a - (bm.b-bm.a) * shift
+        b_new = bm.b + (bm.b-bm.a) * shift
+        bm.set_grid(a_new, b_new)
+        bm.prep()
+        return bm
 
-def calc(m=int(1.E+4), seed=0):
-    log = Log()
-    i_opt = np.zeros(len(BM_FUNC))
-    y_opt = np.zeros(len(BM_FUNC))
 
-    d = int(1.E+4)             # Dimension
-    n = 11             # Mode size
-    seed = [random.randint(0, 100) for _ in range(len(BM_FUNC))]
-    m_value = []
-    y_value = []
-    t_value = []
-    for f in bms:
-        if f.name in BM_FUNC:
-            # We carry out a small random shift of the function's domain,
-            # so that the optimum does not fall into the middle of the domain:
-            f = prep_bm_func(f)
-        else:
-            f.prep()
+    import random
+    import time
+    import pandas as pd
+
+    def calc(m=int(1.E+4), fun_name = 'FL',path='../Results/ss_protes_fl.txt'):
+        log = Log(path)
+
+        d = int(1.E+4)             # Dimension
+        n = 11             # Mode size
+        for f in bms:
+            if f.name in BM_FUNC:
+                # We carry out a small random shift of the function's domain,
+                # so that the optimum does not fall into the middle of the domain:
+                f = prep_bm_func(f)
+            else:
+                f.prep()
+            
+            log(f"\n {f.name} | d {d} \n")
         
-        log(f"\n {f.name} | d {d} \n")
-    
-        i_opt, y_optk, t, m = subset_submod_pts(f, d, n, m, log=True, sub_fun = 'FL')
-    #     log(f"\n {f.name} | m {m} | y {y_optk} | t {t} |  x {i_opt}\n")
-    #     m_value.append(m)
-    #     y_value.append(y_optk)
-    #     t_value.append(t)
-    #     # print(f'\n {f.name} Function: {f} \n | y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f}\n\n')
-    #     # log(f'\nNumber of black boxes: {i} \n {f.name}:  y opt = {y_optk:-11.4e} | time = {time_taken:-10.4f} | x opt = {i_opt} \n ')
-    # df = pd.DataFrame(columns = ['m','y','t'])
-    # df['m'] = m_value
-    # df['y'] = y_value
-    # df['t'] = t_value
-    # df.to_csv("../Results_new_fun/FL_ssprotes.csv")
+            i_opt, y_optk, t, m = subset_submod_pts(f, d, n, m, log=True, sub_fun = fun_name)
+            log(f"\n {f.name} | m {m} | y {y_optk} | t {t} |  x {i_opt}\n")
+    calc(fun_name = "FL", path='../Results/ss_protes_fl.txt')
+    calc(fun_name = "LD",path='../Results/ss_protes_ld.txt')
 
 if __name__ == '__main__':
-    calc()
+    func()
+    
