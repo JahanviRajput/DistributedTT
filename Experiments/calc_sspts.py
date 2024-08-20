@@ -44,54 +44,54 @@ from teneva_bm import *
 
 bms = [
     
-    BmFuncChung(d = 10000, n = 16, name ='F-01'),
+    BmFuncChung(d = 7, n = 16, name ='F-01'),
 
-    BmFuncDixon(d = 10000, n = 16, name ='F-02'), 
+    BmFuncDixon(d = 7, n = 16, name ='F-02'), 
 
-    BmFuncPathological(d = 10000, n = 16, name ='F-03'),
-    BmFuncPinter(d = 10000, n = 16, name ='F-04'), 
-    BmFuncPowell(d = 10000, n = 16, name ='F-05'), 
+    BmFuncPathological(d = 7, n = 16, name ='F-03'),
+    BmFuncPinter(d = 7, n = 16, name ='F-04'), 
+    BmFuncPowell(d = 7, n = 16, name ='F-05'), 
 
-    BmFuncQing(d = 10000, n = 16, name ='F-06'),
+    BmFuncQing(d = 7, n = 16, name ='F-06'),
     BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
 
-    BmFuncSalomon(d = 10000, n = 16, name ='F-08'), 
-    BmFuncSphere(d = 10000, n = 16, name ='F-09'), 
-    BmFuncSquares(d = 10000, n = 16, name ='F-10'),
-    BmFuncTrid(d = 10000, n = 16, name ='F-11'), 
-    BmFuncTrigonometric(d = 10000, n = 16, name ='F-12'), 
-    BmFuncWavy(d = 10000, n = 16, name ='F-13'), 
-    BmFuncYang(d = 10000, n = 16, name ='F-14'),
+    BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
+    BmFuncSphere(d = 7, n = 16, name ='F-09'), 
+    BmFuncSquares(d = 7, n = 16, name ='F-10'),
+    BmFuncTrid(d = 7, n = 16, name ='F-11'), 
+    BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
+    BmFuncWavy(d = 7, n = 16, name ='F-13'), 
+    BmFuncYang(d = 7, n = 16, name ='F-14'),
 
     
     
-    BmQuboMaxcut(d=10000, name='P-11'),
-    BmQuboMvc(d=10000, name='P-12'),
-    BmQuboKnapQuad(d=10000, name='P-13'),
-    BmQuboKnapAmba(d=10000, name='P-14'),
+    BmQuboMaxcut(d=50, name='F-11'),
+    BmQuboMvc(d=50, name='F-12'),
+    BmQuboKnapQuad(d=50, name='F-13'),
+    BmQuboKnapAmba(d=50, name='F-14'),
 
-    BmOcSimple(d=10000, name='P-15'),
-    BmOcSimple(d=10000, name='P-16'),
-    BmOcSimple(d=10000, name='P-17'),
+    BmOcSimple(d=25, name='F-15'),
+    BmOcSimple(d=50, name='F-16'),
+    BmOcSimple(d=100, name='F-17'),
 
-    BmOcSimpleConstr(d=10000, name='P-18'),
-    BmOcSimpleConstr(d=10000, name='P-19'),
-    BmOcSimpleConstr(d=10000, name='P-20'),
+    BmOcSimpleConstr(d=25, name='F-18'),
+    BmOcSimpleConstr(d=50, name='F-19'),
+    BmOcSimpleConstr(d=100, name='F-20'),
 ]
 
 
 ### suplimentary metrial functions
 # bms = [
-#     BmFuncAckley(d=10000, n=16, name='P-01'),
-#     BmFuncAlpine(d=10000, n=16, name='P-02'),
-#     BmFuncExp(d=10000, n=16, name='P-03'),
-#     BmFuncGriewank(d=10000, n=16, name='P-04'),
-#     BmFuncMichalewicz(d=10000, n=16, name='P-05'),
-#     BmFuncPiston(d=10000, n=16, name='P-06'),
-#     BmFuncQing(d=10000, n=16, name='P-07'),
-#     BmFuncRastrigin(d=10000, n=16, name='P-08'),
-#     BmFuncSchaffer(d=10000, n=16, name='P-09'),
-#     BmFuncSchwefel(d=10000, n=16, name='P-10'), 
+#     BmFuncAckley(d=7, n=16, name='P-01'),
+#     BmFuncAlpine(d=7, n=16, name='P-02'),
+#     BmFuncExp(d=7, n=16, name='P-03'),
+#     BmFuncGriewank(d=7, n=16, name='P-04'),
+#     BmFuncMichalewicz(d=7, n=16, name='P-05'),
+#     BmFuncPiston(d=7, n=16, name='P-06'),
+#     BmFuncQing(d=7, n=16, name='P-07'),
+#     BmFuncRastrigin(d=7, n=16, name='P-08'),
+#     BmFuncSchaffer(d=7, n=16, name='P-09'),
+#     BmFuncSchwefel(d=7, n=16, name='P-10'), 
 # ]
 # BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
 #                 'P-08', 'P-09', 'P-10']
@@ -99,9 +99,9 @@ bms = [
 
 BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
            'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
-BM_QUBO      = ['P-11', 'P-12', 'P-13', 'P-14']
-BM_OC        = ['P-15', 'P-16', 'P-17']
-BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
+BM_QUBO      = ['F-11', 'F-12', 'F-13', 'F-14']
+BM_OC        = ['F-15', 'F-16', 'F-17']
+BM_OC_CONSTR = ['F-18', 'F-19', 'F-20']
 
 
 from opti import *

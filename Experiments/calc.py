@@ -65,18 +65,18 @@ bms = [
 
     
     
-    BmQuboMaxcut(d=50, name='P-11'),
-    BmQuboMvc(d=50, name='P-12'),
-    BmQuboKnapQuad(d=50, name='P-13'),
-    BmQuboKnapAmba(d=50, name='P-14'),
+    BmQuboMaxcut(d=50, name='F-11'),
+    BmQuboMvc(d=50, name='F-12'),
+    BmQuboKnapQuad(d=50, name='F-13'),
+    BmQuboKnapAmba(d=50, name='F-14'),
 
-    BmOcSimple(d=25, name='P-15'),
-    BmOcSimple(d=50, name='P-16'),
-    BmOcSimple(d=100, name='P-17'),
+    BmOcSimple(d=25, name='F-15'),
+    BmOcSimple(d=50, name='F-16'),
+    BmOcSimple(d=100, name='F-17'),
 
-    BmOcSimpleConstr(d=25, name='P-18'),
-    BmOcSimpleConstr(d=50, name='P-19'),
-    BmOcSimpleConstr(d=100, name='P-20'),
+    BmOcSimpleConstr(d=25, name='F-18'),
+    BmOcSimpleConstr(d=50, name='F-19'),
+    BmOcSimpleConstr(d=100, name='F-20'),
 ]
 
 
@@ -99,9 +99,9 @@ bms = [
 
 BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
            'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
-BM_QUBO      = ['P-11', 'P-12', 'P-13', 'P-14']
-BM_OC        = ['P-15', 'P-16', 'P-17']
-BM_OC_CONSTR = ['P-18', 'P-19', 'P-20']
+BM_QUBO      = ['F-11', 'F-12', 'F-13', 'F-14']
+BM_OC        = ['F-15', 'F-16', 'F-17']
+BM_OC_CONSTR = ['F-18', 'F-19', 'F-20']
 
 
 from opti import *
