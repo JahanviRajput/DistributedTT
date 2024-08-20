@@ -662,5 +662,67 @@ SSPTSFL      > m 1.0e+03 | t 3.713e+01 | y 5.75196e+07 <<< DONE
 SSPTSLD      > m 1.0e+03 | t 3.801e+01 | y 5.93616e+07 <<< DONE
 BS-0         > m 1.0e+04 | t 3.334e+01 | y 3.26571e+07 <<< DONE
 
+------------------------------------------------------------------------------
+BM: F-18                                 | DIMS =    50 | <MODE SIZE> =    2.0
+                                   y_min = -3.10300e+03 | 
+
+  [ Binary knapsack problem with fixed weights wi in [5, 20], profits pi in
+    [50, 100] (i = 1, 2, . . . , d) and the maximum capacity C = 1000. It is
+    from work (Dong et al., 2021) (problem k3; d = 50), where anglemodulated
+    bat algorithm (AMBA) algorithm was proposed for high-dimensional binary
+    optimization problems with application to antenna topology optimization.
+    The dimension should be 50, and the mode size should be 2. ]
+==============================================================================
+
+SSPTSFL      > m 1.0e+03 | t 4.606e+00 | y -2.73800e+03 <<< DONE
+SSPTSLD      > m 1.0e+03 | t 3.650e+00 | y -2.75300e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 2.679e+00 | y -3.09100e+03 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-19                                 | DIMS =    25 | <MODE SIZE> =    2.0
+
+  [ Discrete optimal control (OC) problem with simple 1D ODE "x**3 - i", where
+    "i" is a binary control variable.
+    The dimension may be any (default is 50), and the mode size should be 2.
+    The benchmark needs "gekko==1.0.6" library (it is used for ODE solution). ]
+==============================================================================
+
+SSPTSFL      > m 1.0e+03 | t 2.132e+02 | y 2.58573e-02 <<< DONE
+SSPTSLD      > m 1.0e+03 | t 1.094e+02 | y 9.64802e-03 <<< DONE
+BS-0         > m 1.0e+04 | t 9.099e+02 | y 6.54500e-03 <<< DONE
+
+
+
+------------------------------------------------------------------------------
+BM: F-20                                 | DIMS =    50 | <MODE SIZE> =    2.0
+
+  [ Discrete optimal control (OC) problem with simple 1D ODE "x**3 - i", where
+    "i" is a binary control variable.
+    The dimension may be any (default is 50), and the mode size should be 2.
+    The benchmark needs "gekko==1.0.6" library (it is used for ODE solution). ]
+==============================================================================
+
+SSPTSFL      > m 1.0e+03 | t 1.006e+02 | y 3.13333e-02 <<< DONE
+SSPTSLD      > m 1.0e+03 | t 1.041e+02 | y 2.57192e-02 <<< DONE
+BS-0         > m 1.0e+04 | t 9.898e+02 | y 1.44753e-02 <<< DONE
+
+
+------------------------------------------------------------------------------
+BM: F-21                                 | DIMS =   100 | <MODE SIZE> =    2.0
+
+  [ Discrete optimal control (OC) problem with simple 1D ODE "x**3 - i", where
+    "i" is a binary control variable.
+    The dimension may be any (default is 50), and the mode size should be 2.
+    The benchmark needs "gekko==1.0.6" library (it is used for ODE solution). ]
+==============================================================================
+
+SSPTSFL      > m 1.0e+03 | t 1.095e+02 | y 8.16890e-02 <<< DONE
+SSPTSLD      > m 1.0e+03 | t 1.089e+02 | y 6.83802e-02 <<< DONE
+BS-0         > m 1.0e+04 | t 9.965e+02 | y 2.94071e-02 <<< DONE
+
+
+
 
 

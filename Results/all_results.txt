@@ -767,5 +767,28 @@ BS-5         > m 1.0e+04 | t 1.615e+01 | y 3.81620e+02 <<< DONE
 BS-6         > m 1.0e+04 | t 1.666e+01 | y -3.26505e+00 <<< DONE
 BS-7         > m 1.0e+04 | t 7.276e+01 | y -3.26532e+00 <<< DONE
 
+BM: F-18                                 | DIMS =    50 | <MODE SIZE> =    2.0
+                                   y_min = -3.10300e+03 | 
+
+  [ Binary knapsack problem with fixed weights wi in [5, 20], profits pi in
+    [50, 100] (i = 1, 2, . . . , d) and the maximum capacity C = 1000. It is
+    from work (Dong et al., 2021) (problem k3; d = 50), where anglemodulated
+    bat algorithm (AMBA) algorithm was proposed for high-dimensional binary
+    optimization problems with application to antenna topology optimization.
+    The dimension should be 50, and the mode size should be 2. ]
+==============================================================================
+
+DiPTS        > m 1.0e+04 | t 4.303e+00 | y -2.98100e+03 <<< DONE
+NoisyPTS     > m 1.0e+05 | t 6.017e+00 | y -3.02700e+03 <<< DONE
+Noisy_protes > m 1.0e+04 | t 2.820e+00 | y -3.00100e+03 <<< DONE
+BS-0         > m 1.0e+04 | t 3.052e+00 | y -3.09100e+03 <<< DONE
+BS-1         > m 1.0e+04 | t 1.232e-01 | y -2.82600e+03 <<< DONE
+BS-2         > m 9.9e+03 | t 5.050e-01 | y -2.84600e+03 <<< DONE
+BS-3         > m 1.0e+04 | t 1.548e+01 | y -2.80800e+03 <<< DONE
+BS-4         > m 1.0e+04 | t 2.524e+01 | y -2.97200e+03 <<< DONE
+BS-5         > m 1.0e+04 | t 1.583e+01 | y -2.74100e+03 <<< DONE
+BS-6         > m 1.0e+04 | t 1.623e+01 | y -3.05100e+03 <<< DONE
+BS-7         > m 1.0e+04 | t 7.050e+01 | y -3.00200e+03 <<< DONE
+
 
 
