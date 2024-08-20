@@ -8,6 +8,7 @@ import numpy as np
 import random
 import time
 import pandas as pd
+from teneva_bm import *
 
 def noisy_PTS(f, d, n, m=None, k=100, k_top=10, k_gd=1, lr=5.E-2, r=5, seed=0,
            is_max=False, log=False, info={}, P=None, with_info_p=False,
@@ -239,130 +240,128 @@ def _sample(Yl, Ym, Yr, Zm, key):
     return jnp.hstack((il, im, ir))
 
 
-import matplotlib as mpl
-import numpy as np
-import os
-import pickle
-import sys
-from time import perf_counter as tpc
+def func():
+    import matplotlib as mpl
+    import numpy as np
+    import os
+    import pickle
+    import sys
+    from time import perf_counter as tpc
 
-import concurrent.futures
-from concurrent.futures import ThreadPoolExecutor
+    import concurrent.futures
+    from concurrent.futures import ThreadPoolExecutor
 
-mpl.rcParams.update({
-    'font.family': 'normal',
-    'font.serif': [],
-    'font.sans-serif': [],
-    'font.monospace': [],
-    'font.size': 12,
-    'text.usetex': False,
-})
-
-
-import matplotlib.cm as cm
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-import seaborn as sns
+    mpl.rcParams.update({
+        'font.family': 'normal',
+        'font.serif': [],
+        'font.sans-serif': [],
+        'font.monospace': [],
+        'font.size': 12,
+        'text.usetex': False,
+    })
 
 
-sns.set_context('paper', font_scale=2.5)
-sns.set_style('white')
-sns.mpl.rcParams['legend.frameon'] = 'False'
+    import matplotlib.cm as cm
+    import matplotlib.pyplot as plt
+    from matplotlib.ticker import MaxNLocator
+    import seaborn as sns
 
 
-from jax.config import config
-config.update('jax_enable_x64', True)
-os.environ['JAX_PLATFORM_NAME'] = 'cpu'
+    sns.set_context('paper', font_scale=2.5)
+    sns.set_style('white')
+    sns.mpl.rcParams['legend.frameon'] = 'False'
 
 
-import jax.numpy as jnp
+    from jax.config import config
+    config.update('jax_enable_x64', True)
+    os.environ['JAX_PLATFORM_NAME'] = 'cpu'
 
 
+    import jax.numpy as jnp
 
-from teneva_bm import *
-
-bms = [
-    
-    BmFuncChung(d = 7, n = 16, name ='F-01'),
-
-    BmFuncDixon(d = 7, n = 16, name ='F-02'), 
-
-    BmFuncPathological(d = 7, n = 16, name ='F-03'),
-    BmFuncPinter(d = 7, n = 16, name ='F-04'), 
-    BmFuncPowell(d = 7, n = 16, name ='F-05'), 
-
-    BmFuncQing(d = 7, n = 16, name ='F-06'),
-    BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
-
-    BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
-    BmFuncSphere(d = 7, n = 16, name ='F-09'), 
-    BmFuncSquares(d = 7, n = 16, name ='F-10'),
-    BmFuncTrid(d = 7, n = 16, name ='F-11'), 
-    BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
-    BmFuncWavy(d = 7, n = 16, name ='F-13'), 
-    BmFuncYang(d = 7, n = 16, name ='F-14'),
-]
-
-
-### suplimentary metrial functions
-# bms = [
-#     BmFuncAckley(d=7, n=16, name='P-01'),
-#     BmFuncAlpine(d=7, n=16, name='P-02'),
-#     BmFuncExp(d=7, n=16, name='P-03'),
-#     BmFuncGriewank(d=7, n=16, name='P-04'),
-#     BmFuncMichalewicz(d=7, n=16, name='P-05'),
-#     BmFuncPiston(d=7, n=16, name='P-06'),
-#     BmFuncQing(d=7, n=16, name='P-07'),
-#     BmFuncRastrigin(d=7, n=16, name='P-08'),
-#     BmFuncSchaffer(d=7, n=16, name='P-09'),
-#     BmFuncSchwefel(d=7, n=16, name='P-10'), 
-# ]
-# BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
-#                 'P-08', 'P-09', 'P-10']
-
-
-BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
-           'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
-
-def prep_bm_func(bm):
-    shift = np.random.randn(bm.d) / 10
-    a_new = bm.a - (bm.b-bm.a) * shift
-    b_new = bm.b + (bm.b-bm.a) * shift
-    bm.set_grid(a_new, b_new)
-    bm.prep()
-    return bm
-
-class Log:
-    def __init__(self, fpath='../Results/noisy_PTS.txt'):
-        self.fpath = fpath
-        self.is_new = True
-
-        if os.path.dirname(self.fpath):
-            os.makedirs(os.path.dirname(self.fpath), exist_ok=True)
-
-    def __call__(self, text):
-        print(text)
-        with open(self.fpath, 'w' if self.is_new else 'a') as f:
-            f.write(text + '\n')
-        self.is_new = False
-
-
-def func(m=int(1.E+4), seed=0):
-    log = Log()
-    d = 7              # Dimension
-    n = 11             # Mode size
-    m = int(10000)     # Number of requests to the objective function
-
-    for f in bms:
-        if f.name in BM_FUNC:
-            f = prep_bm_func(f)
-        else:
-            f.prep()
-        t_start = time.time()
-        i_opt, y_optk = noisy_PTS(f, d, n, m, log=True, k=100)
-        time_taken = (time.time() - t_start)
-        log(f'\n {f.name} \n Noisy PTS > m {m:-7.1e} | t {time_taken:-7.4f} | y {y_optk:-11.4e}')
+    bms = [
         
+        BmFuncChung(d = 7, n = 16, name ='F-01'),
+
+        BmFuncDixon(d = 7, n = 16, name ='F-02'), 
+
+        BmFuncPathological(d = 7, n = 16, name ='F-03'),
+        BmFuncPinter(d = 7, n = 16, name ='F-04'), 
+        BmFuncPowell(d = 7, n = 16, name ='F-05'), 
+
+        BmFuncQing(d = 7, n = 16, name ='F-06'),
+        BmFuncRosenbrock(d = 7, n = 16, name ='F-07'),
+
+        BmFuncSalomon(d = 7, n = 16, name ='F-08'), 
+        BmFuncSphere(d = 7, n = 16, name ='F-09'), 
+        BmFuncSquares(d = 7, n = 16, name ='F-10'),
+        BmFuncTrid(d = 7, n = 16, name ='F-11'), 
+        BmFuncTrigonometric(d = 7, n = 16, name ='F-12'), 
+        BmFuncWavy(d = 7, n = 16, name ='F-13'), 
+        BmFuncYang(d = 7, n = 16, name ='F-14'),
+    ]
+
+
+    ### suplimentary metrial functions
+    # bms = [
+    #     BmFuncAckley(d=7, n=16, name='P-01'),
+    #     BmFuncAlpine(d=7, n=16, name='P-02'),
+    #     BmFuncExp(d=7, n=16, name='P-03'),
+    #     BmFuncGriewank(d=7, n=16, name='P-04'),
+    #     BmFuncMichalewicz(d=7, n=16, name='P-05'),
+    #     BmFuncPiston(d=7, n=16, name='P-06'),
+    #     BmFuncQing(d=7, n=16, name='P-07'),
+    #     BmFuncRastrigin(d=7, n=16, name='P-08'),
+    #     BmFuncSchaffer(d=7, n=16, name='P-09'),
+    #     BmFuncSchwefel(d=7, n=16, name='P-10'), 
+    # ]
+    # BM_FUNC      = ['P-01', 'P-02', 'P-03', 'P-04', 'P-05', 'P-06', 'P-07',
+    #                 'P-08', 'P-09', 'P-10']
+
+
+    BM_FUNC = ['F-01', 'F-02', 'F-03', 'F-04', 'F-05', 'F-06', 'F-07', 'F-08', 'F-09', 
+            'F-10', 'F-11', 'F-12', 'F-13', 'F-14']
+
+    def prep_bm_func(bm):
+        shift = np.random.randn(bm.d) / 10
+        a_new = bm.a - (bm.b-bm.a) * shift
+        b_new = bm.b + (bm.b-bm.a) * shift
+        bm.set_grid(a_new, b_new)
+        bm.prep()
+        return bm
+
+    class Log:
+        def __init__(self, fpath='../Results/noisy_PTS.txt'):
+            self.fpath = fpath
+            self.is_new = True
+
+            if os.path.dirname(self.fpath):
+                os.makedirs(os.path.dirname(self.fpath), exist_ok=True)
+
+        def __call__(self, text):
+            print(text)
+            with open(self.fpath, 'w' if self.is_new else 'a') as f:
+                f.write(text + '\n')
+            self.is_new = False
+
+
+    def fun(m=int(1.E+4), seed=0):
+        log = Log()
+        d = 7              # Dimension
+        n = 11             # Mode size
+        m = int(10000)     # Number of requests to the objective function
+
+        for f in bms:
+            if f.name in BM_FUNC:
+                f = prep_bm_func(f)
+            else:
+                f.prep()
+            t_start = time.time()
+            i_opt, y_optk = noisy_PTS(f, d, n, m, log=True, k=100)
+            time_taken = (time.time() - t_start)
+            log(f'\n {f.name} \n Noisy PTS > m {m:-7.1e} | t {time_taken:-7.4f} | y {y_optk:-11.4e}')
+    fun()
+            
 
 if __name__ == '__main__':
     func()
